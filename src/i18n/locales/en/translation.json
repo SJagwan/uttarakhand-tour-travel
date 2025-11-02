@@ -1,0 +1,65 @@
+{
+  "booking": {
+    "title": "Book Your Ride",
+    "namePlaceholder": "Your Name",
+    "phonePlaceholder": "Phone Number",
+    "datePlaceholder": "Select Date",
+    "pickupPlaceholder": "Pickup Location",
+    "messagePlaceholder": "Your Message",
+    "submitButton": "Submit",
+    "orCall": "Or call us directly:",
+    "phone": "+91 98765 43210"
+  },
+  "footer": {
+    "copyright": "Uttarakhand Travels. All Rights Reserved.",
+    "callText": "Call us now",
+    "phone": "+91 98765 43210"
+  },
+  "navbar": {
+    "logo": "Uttarakhand Travels",
+    "links": {
+      "fleet": "Fleet",
+      "destinations": "Destinations",
+      "booking": "Booking",
+      "contact": "Contact",
+      "callNow": "Call Now",
+      "phone": "+91 98765 43210"
+    }
+  },
+  "destinations": {
+    "title": "Popular Destinations",
+    "places": [
+      { "name": "Kedarnath", "img": "/destinations/kedarnath.jpg" },
+      { "name": "Badrinath", "img": "/destinations/badrinath.jpg" },
+      { "name": "Mussoorie", "img": "/destinations/mussoorie.jpg" },
+      { "name": "Nainital", "img": "/destinations/nainital.jpg" }
+    ]
+  },
+  "hero": {
+    "heading": "Explore Uttarakhand with Comfort",
+    "subheading": "Book Tempo Travellers & Cars for Char Dham Yatra, Mussoorie, Nainital & more.",
+    "bookNow": "Book Now",
+    "callUs": "Call Us",
+    "phone": "+91 98765 43210"
+  },
+  "whyChooseUs": {
+    "heading": "Why Choose Us",
+    "features": {
+      "feature1": {
+        "icon": "Bus",
+        "title": "Comfortable Rides",
+        "description": "Our fleet of tempo travellers ensures a smooth and comfortable journey through Uttarakhand."
+      },
+      "feature2": {
+        "icon": "Users",
+        "title": "Experienced Drivers",
+        "description": "Travel with professional, local drivers who know the routes and terrains."
+      },
+      "feature3": {
+        "icon": "Wallet",
+        "title": "Affordable Pricing",
+        "description": "Enjoy transparent and competitive pricing without hidden charges."
+      }
+    }
+  }
+}

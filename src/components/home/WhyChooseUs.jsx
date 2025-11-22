@@ -12,13 +12,10 @@ const iconMap = {
 const WhyChooseUs = () => {
   const { t } = useTranslation();
 
-  const featureKeys = ["feature1", "feature2", "feature3"];
-
-  const features = featureKeys.map((key) => ({
-    icon: t(`whyChooseUs.features.${key}.icon`),
-    title: t(`whyChooseUs.features.${key}.title`),
-    description: t(`whyChooseUs.features.${key}.description`),
-  }));
+  // Dynamically get all features from translations
+  const featuresObj = t("whyChooseUs.features", { returnObjects: true });
+  // featuresObj is an object with keys feature1, feature2, ...
+  const features = Object.values(featuresObj);
 
   return (
     <section className="py-16 bg-gray-50">
@@ -27,7 +24,7 @@ const WhyChooseUs = () => {
           {t("whyChooseUs.heading")}
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => {
             const iconElement = iconMap[feature.icon] || (
               <Bus className="w-10 h-10 text-gray-400" />

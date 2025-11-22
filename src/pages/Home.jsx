@@ -6,7 +6,6 @@ import useLanguageSync from "../hooks/useLanguageSync";
 
 export default function Home() {
   useLanguageSync();
-
   return (
     <main className="flex flex-col min-h-screen">
       <Hero />

@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { MapPin, ArrowRight } from "lucide-react";
+import DestinationModal from "./DestinationModal";
 
 const Destinations = () => {
   const { t } = useTranslation();
   const places = t("destinations.places", { returnObjects: true });
   const destinationList = Array.isArray(places) ? places : [];
+  const [selectedDestination, setSelectedDestination] = useState(null);
+
+  const handleBookNow = (destinationName) => {
+    setSelectedDestination(null);
+    const bookingSection = document.getElementById("booking");
+    if (bookingSection) {
+      bookingSection.scrollIntoView({ behavior: "smooth" });
+      // Dispatch custom event to pre-fill form
+      window.dispatchEvent(new CustomEvent("prefillDestination", { detail: destinationName }));
+    }
+  };
 
   return (
     <section id="destinations" className="py-24 bg-white">
@@ -21,6 +33,7 @@ const Destinations = () => {
           {destinationList.map((p, i) => (
             <div
               key={i}
+              onClick={() => setSelectedDestination(p)}
               className="group relative h-[400px] rounded-2xl overflow-hidden cursor-pointer shadow-lg"
             >
               {/* Image with Zoom Effect */}
@@ -51,13 +64,25 @@ const Destinations = () => {
                   {p.tagline}
                 </p>
 
-                <button className="flex items-center gap-2 text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200 hover:text-green-400">
+                <button 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedDestination(p);
+                  }}
+                  className="flex items-center gap-2 text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200 hover:text-green-400"
+                >
                   View Details <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
           ))}
         </div>
+
+        <DestinationModal 
+          destination={selectedDestination} 
+          onClose={() => setSelectedDestination(null)} 
+          onBook={handleBookNow}
+        />
       </div>
     </section>
   );

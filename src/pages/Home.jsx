@@ -2,6 +2,8 @@ import BookingForm from "../components/home/BookingForm";
 import Destinations from "../components/home/Destinations";
 import Hero from "../components/home/Hero";
 import WhyChooseUs from "../components/home/WhyChooseUs";
+import HowItWorks from "../components/home/HowItWorks";
+import Testimonials from "../components/home/Testimonials";
 import useLanguageSync from "../hooks/useLanguageSync";
 
 export default function Home() {
@@ -11,6 +13,8 @@ export default function Home() {
       <Hero />
       <WhyChooseUs />
       <Destinations />
+      <Testimonials />
+      <HowItWorks />
       <BookingForm />
     </main>
   );

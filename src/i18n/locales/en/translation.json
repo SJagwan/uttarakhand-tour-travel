@@ -1,6 +1,6 @@
 {
   "booking": {
-    "title": "Book Your Ride",
+    "title": "Start Your Journey",
     "namePlaceholder": "Your Name",
     "phonePlaceholder": "Phone Number",
     "passengersPlaceholder": "No. of Persons",
@@ -17,33 +17,91 @@
   },
   "footer": {
     "copyright": "Uttarakhand Travels. All Rights Reserved.",
-    "callText": ""
+    "about": "Your trusted partner for exploring the divine beauty of Uttarakhand. Safe, comfortable, and memorable journeys guaranteed.",
+    "quickLinks": "Quick Links",
+    "contactUs": "Contact Us",
+    "contactName": "Birbal Singh Jagwan",
+    "address": "Dehradun, Uttarakhand, India",
+    "email": "hello@uttarakhandtravels.com"
   },
   "navbar": {
     "logo": "Uttarakhand Travels",
     "links": {
       "destinations": "Destinations",
-      "booking": "Booking",
+      "booking": "Enquire",
       "contact": "Contact"
     }
   },
   "destinations": {
     "title": "Popular Destinations",
     "places": [
-      { "name": "Kedarnath", "tagline": "The Land of Shiva", "img": "/destinations/kedarnath.jpg" },
-      { "name": "Badrinath", "tagline": "Abode of Lord Vishnu", "img": "/destinations/badrinath.jpg" },
-      { "name": "Mussoorie", "tagline": "The Queen of Hills", "img": "/destinations/mussoorie.jpg" },
-      { "name": "Nainital", "tagline": "The City of Lakes", "img": "/destinations/nainital.jpg" },
-      { "name": "Rishikesh", "tagline": "Yoga Capital of the World", "img": "/destinations/rishikesh.jpg" },
-      { "name": "Haridwar", "tagline": "Gateway to Gods", "img": "/destinations/haridwar.jpg" },
-      { "name": "Auli", "tagline": "Skiing Paradise", "img": "/destinations/mussoorie.jpg" },
-      { "name": "Jim Corbett", "tagline": "Land of Tigers", "img": "/destinations/nainital.jpg" }
-    ]
+      { 
+        "name": "Kedarnath", 
+        "tagline": "The Land of Shiva", 
+        "img": "/destinations/kedarnath.jpg",
+        "description": "One of the twelve Jyotirlingas of Lord Shiva, located amidst the majestic Garhwal Himalayas. A spiritual journey like no other.",
+        "bestTime": "May to June, September to October"
+      },
+      { 
+        "name": "Badrinath", 
+        "tagline": "Abode of Lord Vishnu", 
+        "img": "/destinations/badrinath.jpg",
+        "description": "A holy town dedicated to Lord Vishnu, nestled between the Nar and Narayan mountain ranges. Part of the Char Dham Yatra.",
+        "bestTime": "May to June, September to October"
+      },
+      { 
+        "name": "Mussoorie", 
+        "tagline": "The Queen of Hills", 
+        "img": "/destinations/mussoorie.jpg",
+        "description": "Known as the 'Queen of Hills', this hill station offers stunning views of the Doon Valley and the Shivalik ranges.",
+        "bestTime": "March to June, September to November"
+      },
+      { 
+        "name": "Nainital", 
+        "tagline": "The City of Lakes", 
+        "img": "/destinations/nainital.jpg",
+        "description": "Famous for its Naini Lake, this charming hill station is perfect for boating, shopping, and enjoying the cool mountain air.",
+        "bestTime": "March to June, September to November"
+      },
+      { 
+        "name": "Rishikesh", 
+        "tagline": "Yoga Capital of the World", 
+        "img": "/destinations/rishikesh.jpg",
+        "description": "The Yoga Capital of the World, where the Ganges flows. Perfect for spirituality, yoga, and adventure sports like rafting.",
+        "bestTime": "September to November, March to May"
+      },
+      { 
+        "name": "Haridwar", 
+        "tagline": "Gateway to Gods", 
+        "img": "/destinations/haridwar.jpg",
+        "description": "One of the seven holiest places in India, where the Ganges enters the plains. Famous for the evening Ganga Aarti.",
+        "bestTime": "October to March"
+      },
+      { 
+        "name": "Auli", 
+        "tagline": "Skiing Paradise", 
+        "img": "/destinations/mussoorie.jpg",
+        "description": "India's premier skiing destination, offering panoramic views of Nanda Devi and other Himalayan peaks.",
+        "bestTime": "January to March (for skiing), April to June"
+      },
+      { 
+        "name": "Jim Corbett", 
+        "tagline": "Land of Tigers", 
+        "img": "/destinations/nainital.jpg",
+        "description": "India's oldest national park, famous for its Bengal tigers and diverse wildlife. A paradise for nature lovers.",
+        "bestTime": "November to June"
+      }
+    ],
+    "modal": {
+      "bestTime": "Best Time to Visit",
+      "bookTrip": "Enquire Now",
+      "close": "Close"
+    }
   },
   "hero": {
     "heading": "Explore Uttarakhand with Comfort",
     "subheading": "Book Tempo Travellers & Cars for Char Dham Yatra, Mussoorie, Nainital & more.",
-    "bookNow": "Book Now"
+    "bookNow": "Plan Your Trip"
   },
   "whyChooseUs": {
     "heading": "Why Choose Us",
@@ -79,5 +137,42 @@
         "description": "Vehicles are sanitized before every trip and equipped with essential safety features."
       }
     }
+  },
+  "howItWorks": {
+    "heading": "How It Works",
+    "steps": {
+      "step1": {
+        "title": "Send Enquiry",
+        "description": "Fill the form with your travel details and preferences."
+      },
+      "step2": {
+        "title": "We Plan Your Trip",
+        "description": "Our experts customize the perfect itinerary for you."
+      },
+      "step3": {
+        "title": "Start Traveling",
+        "description": "Confirm your booking and enjoy a hassle-free journey."
+      }
+    }
+  },
+  "testimonials": {
+    "heading": "Happy Travelers",
+    "reviews": [
+      {
+        "name": "Rahul Sharma",
+        "location": "Delhi",
+        "text": "The best experience we had in Kedarnath! The driver was very polite and the car was super clean."
+      },
+      {
+        "name": "Anjali Verma",
+        "location": "Mumbai",
+        "text": "Highly recommended for family trips. They took care of everything from pickup to drop."
+      },
+      {
+        "name": "Amit Patel",
+        "location": "Gujarat",
+        "text": "Professional service and very transparent pricing. Will definitely book again."
+      }
+    ]
   }
 }

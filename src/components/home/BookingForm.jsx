@@ -33,6 +33,14 @@ const BookingForm = () => {
         setStatus("spam_blocked");
       }
     }
+
+    // Listen for pre-fill event from Destinations
+    const handlePrefill = (e) => {
+      setFormData((prev) => ({ ...prev, destination: e.detail }));
+    };
+
+    window.addEventListener("prefillDestination", handlePrefill);
+    return () => window.removeEventListener("prefillDestination", handlePrefill);
   }, []);
 
   const handleChange = (e) => {
@@ -199,7 +207,7 @@ const BookingForm = () => {
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="bg-green-600 text-white px-6 py-4 rounded-xl hover:bg-green-700 transition font-bold text-lg shadow-lg hover:shadow-green-500/30 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+          className="bg-green-600 text-white px-6 py-4 rounded-xl hover:bg-green-700 transition font-bold text-lg shadow-lg hover:shadow-green-500/30 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
         >
           {status === "submitting" ? (
             <>

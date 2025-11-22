@@ -3,6 +3,8 @@
     "title": "Book Your Ride",
     "namePlaceholder": "Your Name",
     "phonePlaceholder": "Phone Number",
+    "passengersPlaceholder": "No. of Persons",
+    "destinationPlaceholder": "Destination (e.g. Kedarnath)",
     "datePlaceholder": "Select Date",
     "pickupPlaceholder": "Pickup Location",
     "messagePlaceholder": "Your Message",
@@ -28,10 +30,14 @@
   "destinations": {
     "title": "Popular Destinations",
     "places": [
-      { "name": "Kedarnath", "img": "/destinations/kedarnath.jpg" },
-      { "name": "Badrinath", "img": "/destinations/badrinath.jpg" },
-      { "name": "Mussoorie", "img": "/destinations/mussoorie.jpg" },
-      { "name": "Nainital", "img": "/destinations/nainital.jpg" }
+      { "name": "Kedarnath", "tagline": "The Land of Shiva", "img": "/destinations/kedarnath.jpg" },
+      { "name": "Badrinath", "tagline": "Abode of Lord Vishnu", "img": "/destinations/badrinath.jpg" },
+      { "name": "Mussoorie", "tagline": "The Queen of Hills", "img": "/destinations/mussoorie.jpg" },
+      { "name": "Nainital", "tagline": "The City of Lakes", "img": "/destinations/nainital.jpg" },
+      { "name": "Rishikesh", "tagline": "Yoga Capital of the World", "img": "/destinations/rishikesh.jpg" },
+      { "name": "Haridwar", "tagline": "Gateway to Gods", "img": "/destinations/haridwar.jpg" },
+      { "name": "Auli", "tagline": "Skiing Paradise", "img": "/destinations/mussoorie.jpg" },
+      { "name": "Jim Corbett", "tagline": "Land of Tigers", "img": "/destinations/nainital.jpg" }
     ]
   },
   "hero": {
@@ -60,17 +66,17 @@
         "description": "Choose curated tours or customize your trip. Clear pricing, no hidden charges."
       },
       "feature4": {
-        "icon": "Bus",
+        "icon": "Map",
         "title": "Trusted Hotel Partnerships",
         "description": "Benefit from exclusive deals and seamless bookings with top-rated hotels and resorts."
       },
       "feature5": {
-        "icon": "Users",
+        "icon": "Clock",
         "title": "24/7 Customer Support",
         "description": "Get round-the-clock assistance for bookings, emergencies, or travel advice."
       },
       "feature6": {
-        "icon": "Wallet",
+        "icon": "Shield",
         "title": "Safety & Hygiene First",
         "description": "Vehicles are sanitized before every trip and equipped with essential safety features."
       }

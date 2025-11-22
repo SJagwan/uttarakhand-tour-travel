@@ -1,5 +1,6 @@
 import Footer from "../components/common/Footer";
 import Navbar from "../components/common/Navbar";
+import WhatsAppButton from "../components/common/WhatsAppButton";
 
 const MainLayout = ({ children }) => {
   return (
@@ -13,6 +14,7 @@ const MainLayout = ({ children }) => {
       <footer>
         <Footer />
       </footer>
+      <WhatsAppButton />
     </div>
   );
 };

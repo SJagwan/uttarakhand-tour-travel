@@ -1,6 +1,7 @@
 {
   "booking": {
     "title": "Start Your Journey",
+    "subtitle": "Fill out the form below and we'll get back to you with the best rates.",
     "namePlaceholder": "Your Name",
     "phonePlaceholder": "Phone Number",
     "passengersPlaceholder": "No. of Persons",
@@ -16,7 +17,7 @@
     "successMessage": "Your booking request has been sent successfully. Our team will call you within 2 hours to confirm details."
   },
   "footer": {
-    "copyright": "Uttarakhand Travels. All Rights Reserved.",
+    "copyright": "Uttarakhand Tour & Travels. All Rights Reserved.",
     "about": "Your trusted partner for exploring the divine beauty of Uttarakhand. Safe, comfortable, and memorable journeys guaranteed.",
     "quickLinks": "Quick Links",
     "contactUs": "Contact Us",
@@ -25,7 +26,7 @@
     "email": "hello@uttarakhandtravels.com"
   },
   "navbar": {
-    "logo": "Uttarakhand Travels",
+    "logo": "Uttarakhand Tour & Travels",
     "links": {
       "destinations": "Destinations",
       "booking": "Enquire",

@@ -116,7 +116,7 @@ const BookingForm = () => {
     <section id="booking" className="py-16 text-center bg-gray-50">
       <h2 className="text-3xl font-bold mb-4">{t("booking.title")}</h2>
       <p className="text-gray-600 mb-10 max-w-xl mx-auto">
-        Fill out the form below and we'll get back to you with the best rates.
+        {t("booking.subtitle")}
       </p>
 
       <form

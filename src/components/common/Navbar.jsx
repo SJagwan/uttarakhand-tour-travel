@@ -50,9 +50,6 @@ const Navbar = () => {
             <a href="#destinations" className="hover:text-green-700">
               {t("navbar.links.destinations")}
             </a>
-            <a href="#booking" className="hover:text-green-700">
-              {t("navbar.links.booking")}
-            </a>
             <a href="#contact" className="hover:text-green-700">
               {t("navbar.links.contact")}
             </a>
@@ -82,11 +79,12 @@ const Navbar = () => {
           </div>
 
           {/* CTA */}
+          {/* CTA */}
           <a
-            href={`tel:${t("navbar.links.phone")}`}
+            href="#booking"
             className="hidden md:inline-block bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700"
           >
-            {t("navbar.links.callNow")}
+            {t("navbar.links.booking")}
           </a>
 
           {/* Mobile menu button */}
@@ -108,22 +106,16 @@ const Navbar = () => {
               {t("navbar.links.destinations")}
             </a>
             <a
-              href="#booking"
-              className="block text-gray-700 hover:text-green-700"
-            >
-              {t("navbar.links.booking")}
-            </a>
-            <a
               href="#contact"
               className="block text-gray-700 hover:text-green-700"
             >
               {t("navbar.links.contact")}
             </a>
             <a
-              href={`tel:${t("navbar.links.phone")}`}
+              href="#booking"
               className="block bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 text-center"
             >
-              {t("navbar.links.callNow")}
+              {t("navbar.links.booking")}
             </a>
 
             {/* Mobile Language Selector */}

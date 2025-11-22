@@ -21,7 +21,7 @@ const BookingForm = () => {
     message: "",
   });
 
-  const [status, setStatus] = useState("idle"); // idle, submitting, success, error, spam_blocked
+  const [status, setStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const BookingForm = () => {
     const lastSubmission = localStorage.getItem("lastBookingSubmission");
     if (lastSubmission) {
       const hoursPassed = (Date.now() - parseInt(lastSubmission)) / (1000 * 60 * 60);
-      if (hoursPassed < 24) {
+      if (hoursPassed < 12) {
         setStatus("spam_blocked");
       }
     }
@@ -76,12 +76,9 @@ const BookingForm = () => {
         <div className="max-w-lg mx-auto px-6">
           <div className="bg-green-50 border border-green-200 rounded-2xl p-8 shadow-sm">
             <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Request Received!</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">{t("booking.spamTitle")}</h2>
             <p className="text-gray-600 mb-6">
-              You have already submitted a request in the last 24 hours. We will contact you shortly.
-            </p>
-            <p className="text-sm text-gray-500">
-              Need urgent help? Call us at <a href={`tel:${t("booking.phone")}`} className="font-bold text-green-700">{t("booking.phone")}</a>
+              {t("booking.spamMessage")}
             </p>
           </div>
         </div>
@@ -97,9 +94,9 @@ const BookingForm = () => {
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <CheckCircle className="w-8 h-8 text-green-600" />
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">Thank You!</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">{t("booking.successTitle")}</h2>
             <p className="text-gray-600 mb-6">
-              Your booking request has been sent successfully. Our team will call you within 2 hours to confirm details.
+              {t("booking.successMessage")}
             </p>
           </div>
         </div>
@@ -217,16 +214,6 @@ const BookingForm = () => {
           )}
         </button>
       </form>
-
-      <p className="mt-8 text-gray-500 text-sm">
-        {t("booking.orCall")}{" "}
-        <a
-          href={`tel:${t("booking.phone")}`}
-          className="text-green-700 font-bold text-base hover:underline"
-        >
-          {t("booking.phone")}
-        </a>
-      </p>
     </section>
   );
 };

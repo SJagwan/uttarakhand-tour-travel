@@ -56,14 +56,6 @@ const Hero = () => {
               <Calendar className="w-5 h-5" />
               {t("hero.bookNow")}
             </a>
-            
-            <a
-              href={`tel:${t("hero.phone")}`}
-              className="group flex items-center gap-2 bg-white/90 hover:bg-white text-gray-900 px-8 py-4 rounded-full font-semibold text-lg transition-all transform hover:scale-105 shadow-lg"
-            >
-              <Phone className="w-5 h-5 text-green-600 group-hover:rotate-12 transition-transform" />
-              {t("hero.callUs")}
-            </a>
           </div>
 
           {/* Trust Badges */}

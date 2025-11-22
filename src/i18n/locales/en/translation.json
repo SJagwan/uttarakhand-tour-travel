@@ -9,22 +9,22 @@
     "pickupPlaceholder": "Pickup Location",
     "messagePlaceholder": "Your Message",
     "submitButton": "Submit",
-    "orCall": "Or call us directly:",
-    "phone": "+91 98765 43210"
+    "orCall": "",
+    "spamTitle": "Request Received!",
+    "spamMessage": "We have received your request. Someone from our team will contact you shortly.",
+    "successTitle": "Thank You!",
+    "successMessage": "Your booking request has been sent successfully. Our team will call you within 2 hours to confirm details."
   },
   "footer": {
     "copyright": "Uttarakhand Travels. All Rights Reserved.",
-    "callText": "Call us now",
-    "phone": "+91 98765 43210"
+    "callText": ""
   },
   "navbar": {
     "logo": "Uttarakhand Travels",
     "links": {
       "destinations": "Destinations",
       "booking": "Booking",
-      "contact": "Contact",
-      "callNow": "Call Now",
-      "phone": "+91 98765 43210"
+      "contact": "Contact"
     }
   },
   "destinations": {
@@ -43,9 +43,7 @@
   "hero": {
     "heading": "Explore Uttarakhand with Comfort",
     "subheading": "Book Tempo Travellers & Cars for Char Dham Yatra, Mussoorie, Nainital & more.",
-    "bookNow": "Book Now",
-    "callUs": "Call Us",
-    "phone": "+91 98765 43210"
+    "bookNow": "Book Now"
   },
   "whyChooseUs": {
     "heading": "Why Choose Us",

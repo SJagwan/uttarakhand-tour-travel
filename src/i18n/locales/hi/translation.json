@@ -3,44 +3,47 @@
     "title": "अपनी सवारी बुक करें",
     "namePlaceholder": "आपका नाम",
     "phonePlaceholder": "फोन नंबर",
+    "passengersPlaceholder": "व्यक्तियों की संख्या",
+    "destinationPlaceholder": "गंतव्य (जैसे केदारनाथ)",
     "datePlaceholder": "तारीख चुनें",
     "pickupPlaceholder": "पिकअप स्थान",
     "messagePlaceholder": "आपका संदेश",
     "submitButton": "सबमिट करें",
-    "orCall": "या सीधे कॉल करें:",
-    "phone": "+91 98765 43210"
+    "orCall": "",
+    "spamTitle": "अनुरोध प्राप्त हुआ!",
+    "spamMessage": "हमें आपका अनुरोध प्राप्त हो गया है। हमारी टीम से कोई जल्द ही आपसे संपर्क करेगा।",
+    "successTitle": "धन्यवाद!",
+    "successMessage": "आपका बुकिंग अनुरोध सफलतापूर्वक भेज दिया गया है। हमारी टीम विवरण की पुष्टि करने के लिए आपको 2 घंटे के भीतर कॉल करेगी।"
   },
   "footer": {
     "copyright": "उत्तराखंड ट्रैवल्स। सर्वाधिकार सुरक्षित।",
-    "callText": "हमें अभी कॉल करें",
-    "phone": "+91 98765 43210"
+    "callText": ""
   },
   "navbar": {
     "logo": "उत्तराखंड ट्रैवल्स",
     "links": {
       "destinations": "स्थल",
       "booking": "बुकिंग",
-      "contact": "संपर्क करें",
-      "callNow": "अभी कॉल करें",
-      "phone": "+91 98765 43210"
+      "contact": "संपर्क करें"
     }
   },
-
   "destinations": {
     "title": "लोकप्रिय स्थल",
     "places": [
-      { "name": "केदारनाथ", "img": "/destinations/kedarnath.jpg" },
-      { "name": "बद्रीनाथ", "img": "/destinations/badrinath.jpg" },
-      { "name": "मसूरी", "img": "/destinations/mussoorie.jpg" },
-      { "name": "नैनीताल", "img": "/destinations/nainital.jpg" }
+      { "name": "केदारनाथ", "tagline": "शिव की भूमि", "img": "/destinations/kedarnath.jpg" },
+      { "name": "बद्रीनाथ", "tagline": "भगवान विष्णु का धाम", "img": "/destinations/badrinath.jpg" },
+      { "name": "मसूरी", "tagline": "पहाड़ों की रानी", "img": "/destinations/mussoorie.jpg" },
+      { "name": "नैनीताल", "tagline": "झीलों का शहर", "img": "/destinations/nainital.jpg" },
+      { "name": "ऋषिकेश", "tagline": "विश्व की योग राजधानी", "img": "/destinations/rishikesh.jpg" },
+      { "name": "हरिद्वार", "tagline": "देवताओं का द्वार", "img": "/destinations/haridwar.jpg" },
+      { "name": "औली", "tagline": "स्कीइंग स्वर्ग", "img": "/destinations/mussoorie.jpg" },
+      { "name": "जिम कॉर्बेट", "tagline": "बाघों की भूमि", "img": "/destinations/nainital.jpg" }
     ]
   },
   "hero": {
     "heading": "आराम के साथ उत्तराखंड का अन्वेषण करें",
     "subheading": "चार धाम यात्रा, मसूरी, नैनीताल और अन्य के लिए टेम्पो ट्रैवलर्स और कारें बुक करें।",
-    "bookNow": "बुक करें",
-    "callUs": "हमें कॉल करें",
-    "phone": "+91 98765 43210"
+    "bookNow": "बुक करें"
   },
   "whyChooseUs": {
     "heading": "हमें क्यों चुनें",
@@ -61,17 +64,17 @@
         "description": "क्यूरेटेड टूर चुनें या अपनी यात्रा को कस्टमाइज़ करें। स्पष्ट मूल्य निर्धारण, कोई छुपा शुल्क नहीं।"
       },
       "feature4": {
-        "icon": "Bus",
+        "icon": "Map",
         "title": "विश्वसनीय होटल साझेदारी",
         "description": "शीर्ष होटलों और रिसॉर्ट्स के साथ विशेष डील और सहज बुकिंग का लाभ उठाएं।"
       },
       "feature5": {
-        "icon": "Users",
+        "icon": "Clock",
         "title": "24/7 ग्राहक सहायता",
         "description": "बुकिंग, आपातकाल या यात्रा सलाह के लिए चौबीसों घंटे सहायता प्राप्त करें।"
       },
       "feature6": {
-        "icon": "Wallet",
+        "icon": "Shield",
         "title": "सुरक्षा और स्वच्छता सर्वोपरि",
         "description": "हर यात्रा से पहले वाहन सैनिटाइज किए जाते हैं और आवश्यक सुरक्षा सुविधाओं से लैस होते हैं।"
       }

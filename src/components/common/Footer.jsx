@@ -10,11 +10,7 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} {t("footer.copyright")}
         </p>
         <p>
-          📞{" "}
-          <a href={`tel:${t("footer.phone")}`} className="text-green-400">
-            {t("footer.phone")}
-          </a>{" "}
-          - {t("footer.callText")}
+          {t("footer.callText")}
         </p>
       </div>
     </footer>

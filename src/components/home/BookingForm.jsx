@@ -7,7 +7,7 @@ const BookingForm = () => {
   
   // --- CONFIGURATION START ---
   // REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
-  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyY0U4qhVV2AY-Cw9wSBbRa6_fUmousDqtVDOv1uJc1P3WShkzik_XlVnd40-8CtCnT/exec"; 
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw8GUmITFt0csDcXR7UXt8ESX5N_xz9HF1jcAsUUqmqB-jAyyYY2ikASp4P6GbJNjBS/exec"; 
   // --- CONFIGURATION END ---
 
 

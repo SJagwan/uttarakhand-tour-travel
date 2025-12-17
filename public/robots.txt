@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://uttarakhand-tour-travels.web.app/sitemap.xml

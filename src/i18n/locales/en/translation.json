@@ -36,59 +36,59 @@
   "destinations": {
     "title": "Popular Destinations",
     "places": [
-      { 
-        "name": "Kedarnath", 
-        "tagline": "The Land of Shiva", 
+      {
+        "name": "Kedarnath",
+        "tagline": "The Land of Shiva",
         "img": "/destinations/kedarnath.jpg",
         "description": "One of the twelve Jyotirlingas of Lord Shiva, located amidst the majestic Garhwal Himalayas. A spiritual journey like no other.",
         "bestTime": "May to June, September to October"
       },
-      { 
-        "name": "Badrinath", 
-        "tagline": "Abode of Lord Vishnu", 
+      {
+        "name": "Badrinath",
+        "tagline": "Abode of Lord Vishnu",
         "img": "/destinations/badrinath.jpg",
         "description": "A holy town dedicated to Lord Vishnu, nestled between the Nar and Narayan mountain ranges. Part of the Char Dham Yatra.",
         "bestTime": "May to June, September to October"
       },
-      { 
-        "name": "Mussoorie", 
-        "tagline": "The Queen of Hills", 
+      {
+        "name": "Mussoorie",
+        "tagline": "The Queen of Hills",
         "img": "/destinations/mussoorie.jpg",
         "description": "Known as the 'Queen of Hills', this hill station offers stunning views of the Doon Valley and the Shivalik ranges.",
         "bestTime": "March to June, September to November"
       },
-      { 
-        "name": "Nainital", 
-        "tagline": "The City of Lakes", 
+      {
+        "name": "Nainital",
+        "tagline": "The City of Lakes",
         "img": "/destinations/nainital.jpg",
         "description": "Famous for its Naini Lake, this charming hill station is perfect for boating, shopping, and enjoying the cool mountain air.",
         "bestTime": "March to June, September to November"
       },
-      { 
-        "name": "Rishikesh", 
-        "tagline": "Yoga Capital of the World", 
+      {
+        "name": "Rishikesh",
+        "tagline": "Yoga Capital of the World",
         "img": "/destinations/rishikesh.jpg",
         "description": "The Yoga Capital of the World, where the Ganges flows. Perfect for spirituality, yoga, and adventure sports like rafting.",
         "bestTime": "September to November, March to May"
       },
-      { 
-        "name": "Haridwar", 
-        "tagline": "Gateway to Gods", 
+      {
+        "name": "Haridwar",
+        "tagline": "Gateway to Gods",
         "img": "/destinations/haridwar.jpg",
         "description": "One of the seven holiest places in India, where the Ganges enters the plains. Famous for the evening Ganga Aarti.",
         "bestTime": "October to March"
       },
-      { 
-        "name": "Auli", 
-        "tagline": "Skiing Paradise", 
-        "img": "/destinations/mussoorie.jpg",
+      {
+        "name": "Auli",
+        "tagline": "Skiing Paradise",
+        "img": "/destinations/auli.jpg",
         "description": "India's premier skiing destination, offering panoramic views of Nanda Devi and other Himalayan peaks.",
         "bestTime": "January to March (for skiing), April to June"
       },
-      { 
-        "name": "Jim Corbett", 
-        "tagline": "Land of Tigers", 
-        "img": "/destinations/nainital.jpg",
+      {
+        "name": "Jim Corbett",
+        "tagline": "Land of Tigers",
+        "img": "/destinations/jim-corbett.jpg",
         "description": "India's oldest national park, famous for its Bengal tigers and diverse wildlife. A paradise for nature lovers.",
         "bestTime": "November to June"
       }

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getDestinationBySlug, getAllDestSlugs } from "@/lib/api/tours";
 import { Link } from "@/i18n/routing";
-import { MapPin, Calendar, Info, ArrowRight } from "lucide-react";
+import { MapPin, Calendar, Info, ArrowRight, Mountain, Star } from "lucide-react";
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>;
@@ -65,18 +65,56 @@ export default async function DestinationDetailPage({ params }: Props) {
               </div>
             </section>
 
-            <section className="p-10 bg-slate-50 rounded-[40px] border border-slate-100">
-              <h3 className="text-2xl font-black text-slate-900 mb-6 tracking-tight uppercase italic flex items-center gap-3">
-                <Calendar size={24} className="text-green-600" /> Best Time to Visit
-              </h3>
-              <p className="text-slate-600 text-lg font-bold italic tracking-tight bg-white p-6 rounded-2xl shadow-sm inline-block">
-                {dest.bestTime}
-              </p>
-            </section>
+            {dest.topSpots && dest.topSpots.length > 0 && (
+              <section>
+                <h2 className="text-3xl font-black text-slate-900 mb-8 tracking-tighter uppercase italic flex items-center gap-4">
+                  <Star size={28} className="text-green-600" /> Top Attractions
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {dest.topSpots.map((spot: string, i: number) => (
+                    <div key={i} className="group flex items-start gap-5 p-6 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl hover:border-green-200 transition-all duration-300 hover:-translate-y-1">
+                      <div className="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center text-green-600 font-black shrink-0 group-hover:bg-green-600 group-hover:text-white transition-colors">
+                        <MapPin size={24} />
+                      </div>
+                      <div className="flex flex-col justify-center min-h-[56px]">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Highlight 0{i + 1}</span>
+                        <span className="font-bold text-slate-900 text-lg leading-tight group-hover:text-green-600 transition-colors">{spot}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
           </div>
 
-          {/* CTA: Related Packages */}
-          <aside className="lg:sticky lg:top-24">
+          {/* CTA & Quick Facts */}
+          <aside className="space-y-8 lg:sticky lg:top-24">
+            
+            {/* Quick Facts Card */}
+            <div className="bg-slate-50 rounded-[40px] p-10 border border-slate-100">
+              <h3 className="text-xl font-black text-slate-900 mb-8 tracking-tight uppercase italic border-b border-slate-200 pb-4">
+                Quick Facts
+              </h3>
+              <div className="space-y-6">
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 flex items-center gap-2">
+                    <Calendar size={12} className="text-green-600" /> Best Time to Visit
+                  </p>
+                  <p className="font-bold text-slate-900 leading-tight">{dest.bestTime}</p>
+                </div>
+                
+                {dest.altitude && (
+                  <div>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 flex items-center gap-2">
+                      <Mountain size={12} className="text-green-600" /> Altitude
+                    </p>
+                    <p className="font-bold text-slate-900 leading-tight">{dest.altitude}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* CTA */}
             <div className="bg-slate-900 rounded-[40px] p-10 text-white shadow-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-4 opacity-5 translate-x-4">
                 <ArrowRight size={150} />
@@ -88,10 +126,10 @@ export default async function DestinationDetailPage({ params }: Props) {
                 Book a private Tempo Traveller or Car for your trip to {dest.name} with our local experts.
               </p>
               <Link 
-                href={`/tours/${slug}-tour`}
+                href="/tours"
                 className="w-full py-5 bg-green-600 hover:bg-green-700 text-white rounded-2xl font-black uppercase italic tracking-widest transition-all flex items-center justify-center gap-3 shadow-xl hover:shadow-green-600/30"
               >
-                View Packages <ArrowRight size={18} />
+                Explore Tours <ArrowRight size={18} />
               </Link>
             </div>
           </aside>

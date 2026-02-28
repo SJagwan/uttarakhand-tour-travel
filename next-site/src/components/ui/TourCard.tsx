@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { TourPackage } from "@/types/api.types";
-import { MapPin, Clock, ArrowRight, Star, CheckCircle2 } from "lucide-react";
+import { MapPin, Clock, ArrowRight, Star, CheckCircle2, Calendar } from "lucide-react";
 
 interface Props {
   tour: TourPackage;
@@ -32,17 +32,25 @@ export default function TourCard({ tour }: Props) {
         </div>
 
         {/* Rating Badge */}
-        <div className="absolute top-5 right-5 px-3 py-1.5 bg-white/90 backdrop-blur-md rounded-xl shadow-lg flex items-center gap-1.5">
-          <Star size={12} className="text-amber-500 fill-amber-500" />
-          <span className="text-xs font-black text-slate-900">{tour.rating}</span>
-        </div>
+        {tour.rating && (
+          <div className="absolute top-5 right-5 px-3 py-1.5 bg-white/90 backdrop-blur-md rounded-xl shadow-lg flex items-center gap-1.5">
+            <Star size={12} className="text-amber-500 fill-amber-500" />
+            <span className="text-xs font-black text-slate-900">{tour.rating}</span>
+          </div>
+        )}
       </div>
 
       {/* Content Area */}
       <div className="p-8 flex flex-col flex-grow">
-        <h3 className="text-2xl font-black text-slate-900 group-hover:text-green-600 transition-colors line-clamp-1 tracking-tighter uppercase italic mb-4">
+        <h3 className="text-2xl font-black text-slate-900 group-hover:text-green-600 transition-colors line-clamp-1 tracking-tighter uppercase italic mb-2">
           {tour.title}
         </h3>
+        
+        {tour.bestTime && (
+          <div className="flex items-center gap-1.5 text-[10px] font-bold text-green-600 uppercase tracking-widest mb-4">
+            <Calendar size={12} /> Best Time: {tour.bestTime}
+          </div>
+        )}
 
         {/* Route Path (Visualized like Holidify) */}
         <div className="flex items-center gap-2 mb-6 overflow-hidden">

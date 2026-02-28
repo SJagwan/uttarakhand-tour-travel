@@ -5,7 +5,7 @@ import { getTourBySlug, getAllTourSlugs } from "@/lib/api/tours";
 import { generateTourSchema } from "@/lib/seo/schema";
 import BookingWidget from "@/components/sections/BookingWidget";
 import TourGallery from "@/components/sections/TourGallery";
-import { Clock, Star, MapPin, CheckCircle2, XCircle, Info, ChevronDown } from "lucide-react";
+import { Clock, Star, MapPin, CheckCircle2, XCircle, Info, ChevronDown, Calendar } from "lucide-react";
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>;
@@ -50,10 +50,12 @@ export default async function TourDetailPage({ params }: Props) {
               <span className="bg-green-600 px-5 py-2 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] italic shadow-xl">
                 {tour.durationNights}N / {tour.durationDays}D Package
               </span>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-2xl border border-white/10">
-                <Star size={14} className="text-amber-400 fill-amber-400" />
-                <span className="text-sm font-black uppercase italic tracking-widest">{tour.rating} ({tour.reviewCount} Reviews)</span>
-              </div>
+              {tour.rating && tour.reviewCount && (
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-2xl border border-white/10">
+                  <Star size={14} className="text-amber-400 fill-amber-400" />
+                  <span className="text-sm font-black uppercase italic tracking-widest">{tour.rating} ({tour.reviewCount} Reviews)</span>
+                </div>
+              )}
             </div>
             <h1 className="text-5xl md:text-8xl font-black mb-6 leading-[0.85] tracking-tighter uppercase italic animate-in fade-in slide-in-from-bottom-8 duration-1000">
               {tour.title}
@@ -68,6 +70,14 @@ export default async function TourDetailPage({ params }: Props) {
                 ))}
               </div>
             </div>
+            {tour.bestTime && (
+              <div className="flex items-center gap-3 mt-4 text-green-400">
+                <Calendar size={18} />
+                <span className="text-xs font-bold uppercase tracking-widest">
+                  Best Time: {tour.bestTime}
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </header>

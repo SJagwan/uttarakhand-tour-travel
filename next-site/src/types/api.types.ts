@@ -43,8 +43,8 @@ export interface TourPackage {
     slug: string;
   };
   isFeatured: boolean;
-  rating: number;
-  reviewCount: number;
+  rating?: number;
+  reviewCount?: number;
   tags: string[];
 }
 

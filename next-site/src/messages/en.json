@@ -48,88 +48,250 @@
         "tagline": "The Land of Shiva",
         "img": "/destinations/kedarnath.jpg",
         "description": "One of the twelve Jyotirlingas of Lord Shiva, located amidst the majestic Garhwal Himalayas. A spiritual journey like no other.",
-        "bestTime": "May to June, September to October"
+        "bestTime": "May to June, September to October",
+        "altitude": "3,583 m",
+        "topSpots": [
+          "Kedarnath Temple",
+          "Bhairav Nath Temple",
+          "Vasuki Tal",
+          "Trekking & Heli Tours"
+        ]
       },
       {
         "name": "Badrinath",
         "tagline": "Abode of Lord Vishnu",
         "img": "/destinations/badrinath.jpg",
         "description": "A holy town dedicated to Lord Vishnu, nestled between the Nar and Narayan mountain ranges. Part of the Char Dham Yatra.",
-        "bestTime": "May to June, September to October"
+        "bestTime": "May to June, September to October",
+        "altitude": "3,300 m",
+        "topSpots": [
+          "Badrinath Temple",
+          "Mana Village",
+          "Tapt Kund",
+          "Neelkanth Peak"
+        ]
       },
       {
         "name": "Mussoorie",
         "tagline": "The Queen of Hills",
         "img": "/destinations/mussoorie.jpg",
         "description": "Known as the 'Queen of Hills', this hill station offers stunning views of the Doon Valley and the Shivalik ranges.",
-        "bestTime": "March to June, September to November"
+        "bestTime": "March to June, September to November",
+        "altitude": "2,005 m",
+        "topSpots": [
+          "Kempty Falls",
+          "Gun Hill",
+          "Mall Road",
+          "Camel's Back Road"
+        ]
       },
       {
         "name": "Nainital",
         "tagline": "The City of Lakes",
         "img": "/destinations/nainital.jpg",
         "description": "Famous for its Naini Lake, this charming hill station is perfect for boating, shopping, and enjoying the cool mountain air.",
-        "bestTime": "March to June, September to November"
+        "bestTime": "March to June, September to November",
+        "altitude": "2,084 m",
+        "topSpots": [
+          "Naini Lake",
+          "Naina Devi Temple",
+          "Snow View Point",
+          "Tiffin Top"
+        ]
       },
       {
         "name": "Rishikesh",
         "tagline": "Yoga Capital of the World",
         "img": "/destinations/rishikesh.jpg",
         "description": "The Yoga Capital of the World, where the Ganges flows. Perfect for spirituality, yoga, and adventure sports like rafting.",
-        "bestTime": "September to November, March to May"
+        "bestTime": "September to November, March to May",
+        "altitude": "340 m",
+        "topSpots": [
+          "Triveni Ghat",
+          "Laxman Jhula",
+          "Beatles Ashram",
+          "White Water Rafting"
+        ]
       },
       {
         "name": "Haridwar",
         "tagline": "Gateway to Gods",
         "img": "/destinations/haridwar.jpg",
         "description": "One of the seven holiest places in India, where the Ganges enters the plains. Famous for the evening Ganga Aarti.",
-        "bestTime": "October to March"
+        "bestTime": "October to March",
+        "altitude": "314 m",
+        "topSpots": [
+          "Har Ki Pauri",
+          "Mansa Devi Temple",
+          "Chandi Devi Temple",
+          "Shantikunj"
+        ]
       },
       {
         "name": "Auli",
         "tagline": "Skiing Paradise",
         "img": "/destinations/auli.jpg",
         "description": "India's premier skiing destination, offering panoramic views of Nanda Devi and other Himalayan peaks.",
-        "bestTime": "January to March (for skiing), April to June"
+        "bestTime": "January to March (for skiing), April to June",
+        "altitude": "2,800 m",
+        "topSpots": [
+          "Auli Artificial Lake",
+          "Joshimath",
+          "Gurso Bugyal",
+          "Skiing & Ropeway Ride"
+        ]
       },
       {
         "name": "Jim Corbett",
         "tagline": "Land of Tigers",
         "img": "/destinations/jim-corbett.jpg",
         "description": "India's oldest national park, famous for its Bengal tigers and diverse wildlife. A paradise for nature lovers.",
-        "bestTime": "November to June"
+        "bestTime": "November to June",
+        "altitude": "385 m",
+        "topSpots": [
+          "Jungle Wildlife Safari",
+          "Garjiya Devi Temple",
+          "Corbett Falls",
+          "Sitabani Wildlife Reserve"
+        ]
+      },
+      {
+        "name": "Gangotri",
+        "tagline": "Origin of the Holy Ganga",
+        "img": "/destinations/gangotri.jpg",
+        "description": "One of the Char Dham pilgrimage sites and the spiritual source of the Ganges River. Surrounded by rugged Himalayan peaks.",
+        "bestTime": "May to June, September to October",
+        "altitude": "3,415 m",
+        "topSpots": [
+          "Gangotri Temple",
+          "Surya Kund",
+          "Bhagirath Shila",
+          "Pandava Gufa"
+        ]
+      },
+      {
+        "name": "Yamunotri",
+        "tagline": "Source of River Yamuna",
+        "img": "/destinations/yamunotri.jpg",
+        "description": "The first stop in the Char Dham Yatra, dedicated to Goddess Yamuna. Famous for its thermal springs and scenic trek.",
+        "bestTime": "May to June, September to October",
+        "altitude": "3,291 m",
+        "topSpots": [
+          "Yamunotri Temple",
+          "Surya Kund",
+          "Divya Shila",
+          "Janki Chatti"
+        ]
+      },
+      {
+        "name": "Chopta",
+        "tagline": "Mini Switzerland of India",
+        "img": "/destinations/chopta.jpg",
+        "description": "A pristine hill station famous for its lush meadows and as the base camp for the trek to Tungnath, the highest Shiva temple.",
+        "bestTime": "April to June, September to November",
+        "altitude": "2,680 m",
+        "topSpots": [
+          "Tungnath Temple",
+          "Chandrashila Trek",
+          "Deoria Tal",
+          "Ukhimath"
+        ]
+      },
+      {
+        "name": "Valley of Flowers",
+        "tagline": "A UNESCO World Heritage Site",
+        "img": "/destinations/valley-of-flowers.jpg",
+        "description": "A vibrant national park known for its endemic alpine flowers and outstanding natural beauty. Accessible only by trek.",
+        "bestTime": "July to September",
+        "altitude": "3,658 m",
+        "topSpots": [
+          "Valley of Flowers National Park",
+          "Hemkund Sahib",
+          "Ghangaria",
+          "Pushpawati River"
+        ]
       }
     ],
     "yatra": [
       {
         "name": "Char Dham Yatra",
         "tagline": "The Complete Spiritual Pilgrimage",
-        "duration": "11 Days / 10 Nights",
-        "price": "32500",
-        "description": "A sacred journey covering Yamunotri, Gangotri, Kedarnath, and Badrinath. Experience ultimate spiritual peace in the Himalayas.",
-        "route": "Delhi → Haridwar → Barkot → Uttarkashi → Guptkashi → Kedarnath → Badrinath → Rishikesh",
-        "highlights": ["VIP Darshan Assistance", "Certified Local Guides", "Stay in Best-rated Hotels", "All Registration Included"],
-        "img": "/destinations/kedarnath.jpg"
+        "duration": "10 Days / 9 Nights",
+        "price": "27500",
+        "description": "A sacred 10-day journey covering Yamunotri, Gangotri, Kedarnath, and Badrinath. Price ranges from ₹27,500 to ₹35,000 per person depending on hotel category, food, and activities. Includes daily breakfast and dinner.",
+        "route": "Haridwar/Dehradun → Barkot → Uttarkashi → Guptkashi → Kedarnath → Badrinath → Rudraprayag → Haridwar",
+        "highlights": [
+          "MAP Plan (Breakfast & Dinner)",
+          "Starts from Haridwar/Dehradun",
+          "2N Barkot, 2N Uttarkashi, 2N Guptkashi",
+          "1N Kedarnath, 1N Badrinath, 1N Rudraprayag"
+        ],
+        "img": "/destinations/kedarnath.jpg",
+        "bestTime": "May to June, and September to October"
       },
       {
         "name": "Do Dham Yatra",
         "tagline": "Kedarnath & Badrinath Special",
-        "duration": "5 Days / 4 Nights",
+        "duration": "6 Days / 5 Nights",
         "price": "18500",
-        "description": "A focused pilgrimage to the two most prominent shrines: Kedarnath (Lord Shiva) and Badrinath (Lord Vishnu).",
-        "route": "Haridwar → Guptkashi → Kedarnath → Badrinath → Rishikesh",
-        "highlights": ["Private AC Vehicle", "Daily Morning & Evening Aarti", "Trek Assistance", "Mineral Water & Snacks"],
-        "img": "/destinations/badrinath.jpg"
+        "description": "A focused 6-day pilgrimage to the two most prominent shrines: Kedarnath (Lord Shiva) and Badrinath (Lord Vishnu). Price ranges from ₹18,500 to ₹25,000 per person depending on facilities. Includes daily breakfast and dinner.",
+        "route": "Haridwar/Dehradun → Guptkashi → Kedarnath → Pipalkoti → Badrinath → Haridwar",
+        "highlights": [
+          "MAP Plan (Breakfast & Dinner)",
+          "Starts from Haridwar/Dehradun",
+          "2N Guptkashi, 1N Kedarnath",
+          "2N Pipalkoti"
+        ],
+        "img": "/destinations/badrinath.jpg",
+        "bestTime": "May to June, and September to October"
       },
       {
         "name": "Teen Dham Yatra",
-        "tagline": "Yamunotri, Gangotri & Kedarnath",
+        "tagline": "Yamunotri, Kedarnath & Badrinath",
         "duration": "8 Days / 7 Nights",
         "price": "24500",
-        "description": "A unique pilgrimage route covering the sources of Yamuna and Ganga, concluding at the holy Kedarnath shrine.",
-        "route": "Haridwar → Barkot → Uttarkashi → Guptkashi → Kedarnath → Haridwar",
-        "highlights": ["Source of Ganga & Yamuna", "Scenic Himalayan Views", "AC Tempo Traveller", "Hassle-free Logistics"],
-        "img": "/destinations/haridwar.jpg"
+        "description": "A specialized 8-day pilgrimage covering Yamunotri, Kedarnath, and Badrinath. Price starts at ₹24,500 per person depending on facilities. Includes daily breakfast and dinner.",
+        "route": "Haridwar/Dehradun → Barkot → Guptkashi → Kedarnath → Badrinath → Rudraprayag → Haridwar",
+        "highlights": [
+          "MAP Plan (Breakfast & Dinner)",
+          "Starts from Haridwar/Dehradun",
+          "Overnight in Kedarnath",
+          "3 Sacred Shrines"
+        ],
+        "img": "/destinations/haridwar.jpg",
+        "bestTime": "May to June, and September to October"
+      },
+      {
+        "name": "Nainital & Jim Corbett Safari",
+        "tagline": "Lakes, Hills, and Wildlife",
+        "duration": "4 Days / 3 Nights",
+        "price": "12000",
+        "description": "A quick 4-day escape blending serene lakes and thrilling wildlife. Price ranges from ₹12,000 to ₹16,000 per person depending on hotel category. Includes MAP Plan.",
+        "route": "Dehradun/Haridwar → Nainital (2N) → Jim Corbett (1N) → Dehradun/Haridwar",
+        "highlights": [
+          "Naini Lake Boating",
+          "Corbett Jungle Safari",
+          "2N Nainital, 1N Corbett",
+          "MAP Plan Included"
+        ],
+        "img": "/destinations/nainital.jpg",
+        "bestTime": "October to June (for Safari)"
+      },
+      {
+        "name": "Auli Chopta Snow Tour",
+        "tagline": "The Ultimate Winter Adventure",
+        "duration": "5 Days / 4 Nights",
+        "price": "16000",
+        "description": "Experience the snow-capped peaks of Auli and trek the pristine trails of Chopta, the Mini Switzerland of India. Includes complimentary bonfire and premium stays. Price starts at ₹16,000 and can increase based on hotel upgrades and additional activities.",
+        "route": "Dehradun/Haridwar → Chopta (2N) → Joshimath/Auli (2N) → Dehradun/Haridwar",
+        "highlights": [
+          "Auli Ropeway Included",
+          "Tungnath & Chandrashila Trek",
+          "2N Chopta, 2N Joshimath",
+          "Complimentary Bonfire & MAP Plan"
+        ],
+        "img": "/destinations/auli.jpg",
+        "bestTime": "December to March (for Snow), April to June"
       }
     ],
     "modal": {

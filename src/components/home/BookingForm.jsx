@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { Send, CheckCircle, AlertCircle, Loader2, RefreshCw } from "lucide-react";
 
 const BookingForm = () => {
   const { t } = useTranslation();
   
   // --- CONFIGURATION START ---
-  // REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
   const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw8GUmITFt0csDcXR7UXt8ESX5N_xz9HF1jcAsUUqmqB-jAyyYY2ikASp4P6GbJNjBS/exec"; 
   // --- CONFIGURATION END ---
 
@@ -25,16 +24,15 @@ const BookingForm = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-
+    // Check if user submitted recently to prevent duplicates on refresh
     const lastSubmission = localStorage.getItem("lastBookingSubmission");
     if (lastSubmission) {
       const hoursPassed = (Date.now() - parseInt(lastSubmission)) / (1000 * 60 * 60);
       if (hoursPassed < 12) {
-        setStatus("spam_blocked");
+        setStatus("already_submitted");
       }
     }
 
-    // Listen for pre-fill event from Destinations
     const handlePrefill = (e) => {
       setFormData((prev) => ({ ...prev, destination: e.detail }));
     };
@@ -49,21 +47,15 @@ const BookingForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (status === "spam_blocked") return;
-
     setStatus("submitting");
 
     try {
-      // Send data as JSON to Google Apps Script
       const response = await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
-        // mode: "no-cors" is NOT needed here because Apps Script handles CORS!
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
-        // On success
         setStatus("success");
         localStorage.setItem("lastBookingSubmission", Date.now().toString());
         setFormData({ name: "", phone: "", passengers: "", destination: "", date: "", pickup: "", message: "" });
@@ -78,23 +70,8 @@ const BookingForm = () => {
     }
   };
 
-  if (status === "spam_blocked") {
-    return (
-      <section id="booking" className="py-16 text-center bg-gray-50">
-        <div className="max-w-lg mx-auto px-6">
-          <div className="bg-green-50 border border-green-200 rounded-2xl p-8 shadow-sm">
-            <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">{t("booking.spamTitle")}</h2>
-            <p className="text-gray-600 mb-6">
-              {t("booking.spamMessage")}
-            </p>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  if (status === "success") {
+  // State for when a user has already submitted (Persists on refresh)
+  if (status === "already_submitted" || status === "success") {
     return (
       <section id="booking" className="py-16 text-center bg-gray-50">
         <div className="max-w-lg mx-auto px-6">
@@ -102,10 +79,24 @@ const BookingForm = () => {
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <CheckCircle className="w-8 h-8 text-green-600" />
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">{t("booking.successTitle")}</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              {status === "success" ? t("booking.successTitle") : t("booking.spamTitle")}
+            </h2>
             <p className="text-gray-600 mb-6">
-              {t("booking.successMessage")}
+              {status === "success" ? t("booking.successMessage") : t("booking.spamMessage")}
             </p>
+            
+            {/* Added a way to submit again if they really need to */}
+            <button 
+              onClick={() => {
+                localStorage.removeItem("lastBookingSubmission");
+                setStatus("idle");
+              }}
+              className="text-sm text-green-600 font-medium hover:underline flex items-center justify-center gap-1 mx-auto"
+            >
+              <RefreshCw className="w-3 h-3" />
+              Submit another request
+            </button>
           </div>
         </div>
       </section>
@@ -175,7 +166,7 @@ const BookingForm = () => {
             type="date"
             min={new Date(Date.now() + 86400000).toISOString().split("T")[0]}
             required
-            className="p-4 border border-gray-200 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-green-500 transition text-gray-500"
+            className={`p-4 border border-gray-200 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-green-500 transition ${formData.date ? 'text-gray-900' : 'text-gray-500'}`}
           />
           <input
             name="pickup"

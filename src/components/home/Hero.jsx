@@ -25,12 +25,15 @@ const Hero = () => {
     <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
       {/* Background Image with Ken Burns Effect */}
       {heroImages.map((img, index) => (
-        <div
+        <img
           key={index}
-          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out ${
+          src={img}
+          alt={`Uttarakhand Hero Image ${index + 1}`}
+          fetchPriority={index === 0 ? "high" : "auto"}
+          loading={index === 0 ? "eager" : "lazy"}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
             index === bgIndex ? "opacity-100 animate-zoom-in" : "opacity-0"
           }`}
-          style={{ backgroundImage: `url('${img}')` }}
         />
       ))}
 

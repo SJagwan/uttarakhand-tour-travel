@@ -25,6 +25,7 @@ const Navbar = () => {
     localStorage.setItem("selectedLang", lang);
     setLangOpen(false);
     setShowLangModal(false);
+    setOpen(false);
   };
 
   useEffect(() => {

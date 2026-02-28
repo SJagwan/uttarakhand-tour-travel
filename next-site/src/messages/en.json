@@ -2,19 +2,26 @@
   "booking": {
     "title": "Start Your Journey",
     "subtitle": "Fill out the form below and we'll get back to you with the best rates.",
-    "namePlaceholder": "Your Name",
-    "phonePlaceholder": "Phone Number",
-    "passengersPlaceholder": "No. of Persons",
-    "destinationPlaceholder": "Destination (e.g. Kedarnath)",
-    "datePlaceholder": "Select Date",
-    "pickupPlaceholder": "Pickup Location",
-    "messagePlaceholder": "Your Message",
-    "submitButton": "Submit",
-    "orCall": "",
-    "spamTitle": "Request Received!",
-    "spamMessage": "We have received your request. Someone from our team will contact you shortly.",
-    "successTitle": "Thank You!",
-    "successMessage": "Your booking request has been sent successfully. Our team will call you within 2 hours to confirm details."
+    "nameLabel": "Full Name",
+    "namePlaceholder": "Enter your name",
+    "phoneLabel": "Phone Number",
+    "phonePlaceholder": "10-digit mobile",
+    "destinationLabel": "Destination",
+    "destinationPlaceholder": "Where to?",
+    "pickupLabel": "Pickup Location",
+    "pickupPlaceholder": "e.g. Dehradun Airport",
+    "passengersLabel": "No. of Persons",
+    "passengersPlaceholder": "How many?",
+    "dateLabel": "Travel Date",
+    "messageLabel": "Additional Requirements",
+    "messagePlaceholder": "Any special requests or details?",
+    "submitButton": "Request Price Quote",
+    "processing": "Processing",
+    "secureText1": "Safe & Secure Booking",
+    "secureText2": "No immediate payment required",
+    "successTitle": "Enquiry Sent!",
+    "successMessage": "Your booking request has been sent successfully. Our team will call you within 2 hours to confirm details.",
+    "closeButton": "Close & Refresh"
   },
   "footer": {
     "copyright": "Uttarakhand Tour & Travels. All Rights Reserved.",
@@ -207,5 +214,52 @@
         "text": "Professional service and very transparent pricing. Will definitely book again."
       }
     ]
+  },
+  "aboutPage": {
+    "metadata": {
+      "title": "About Us | Uttarakhand Tour & Travels",
+      "description": "Learn about our journey since 2022. We are a trusted local operator providing safe, reliable, and comfortable travel across Dev Bhoomi."
+    },
+    "hero": {
+      "title": "Our",
+      "titleHighlight": "Story",
+      "subtitle": "\"Providing a safe way to travel and explore Dev Bhoomi since 2022.\""
+    },
+    "aboutSection": {
+      "badge": "Local Experts",
+      "heading": "Guided by",
+      "headingHighlight": "Birbal Singh Jagwan",
+      "paragraph1": "We started our journey around 2022 with a clear and vital mission: to provide people with a safe, reliable, and comfortable way to travel and explore the divine beauty of Dev Bhoomi (Uttarakhand).",
+      "paragraph2": "What sets us apart is our hands-on approach. We are a dedicated <strong>local operator</strong> that owns and maintains its own fleet of vehicles. This ensures every journey meets our high safety and comfort standards, giving you peace of mind on the mountain roads.",
+      "stats": {
+        "trips": "100+",
+        "tripsLabel": "Trips Completed",
+        "fleet": "100%",
+        "fleetLabel": "Owned Fleet"
+      }
+    },
+    "pillars": {
+      "heading": "The Core",
+      "headingHighlight": "Pillars",
+      "items": {
+        "expertise": {
+          "title": "Local Expertise",
+          "desc": "Real-time updates on weather, road conditions, and temple timings."
+        },
+        "safety": {
+          "title": "Verified Safety",
+          "desc": "Regularly serviced AC fleet with all necessary permits and insurance."
+        },
+        "booking": {
+          "title": "Direct Booking",
+          "desc": "No middleman. You talk directly to the operator, ensuring best prices."
+        }
+      }
+    },
+    "contact": {
+      "heading": "Ready to talk?",
+      "callBtn": "Call Now",
+      "emailBtn": "Email Us"
+    }
   }
 }

@@ -1,5 +1,5 @@
 import BookingWidget from "@/components/sections/BookingWidget";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 export default function ContactPage() {
   return (
@@ -16,16 +16,6 @@ export default function ContactPage() {
             </p>
 
             <div className="space-y-8">
-              <div className="flex gap-6 items-center">
-                <div className="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-green-600">
-                  <Phone size={24} />
-                </div>
-                <div>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Call Us</p>
-                  <a href="tel:+919999999999" className="text-xl font-black text-slate-900">+91-9999999999</a>
-                </div>
-              </div>
-
               <div className="flex gap-6 items-center">
                 <div className="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-green-600">
                   <Mail size={24} />

@@ -1,9 +1,14 @@
-import { Link } from "@/i18n/routing";
+"use client";
+
+import { Link, usePathname } from "@/i18n/routing";
 import { useTranslations } from 'next-intl';
 import { Menu, Phone, MapPin } from "lucide-react";
 
 export default function Navbar({ locale }: { locale: string }) {
   const t = useTranslations('navbar');
+  const pathname = usePathname();
+
+  const isActive = (path: string) => pathname === path || pathname?.startsWith(`${path}/`);
 
   return (
     <nav className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-xl border-b border-slate-100 shadow-sm">
@@ -18,13 +23,13 @@ export default function Navbar({ locale }: { locale: string }) {
 
         {/* DESKTOP LINKS */}
         <div className="hidden md:flex items-center gap-10">
-          <Link href="/tours" className="text-xs font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors">
+          <Link href="/tours" className={`text-xs font-black uppercase tracking-widest transition-colors ${isActive('/tours') ? 'text-green-600' : 'text-slate-600 hover:text-green-600'}`}>
             Tours
           </Link>
-          <Link href="/destinations" className="text-xs font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors">
+          <Link href="/destinations" className={`text-xs font-black uppercase tracking-widest transition-colors ${isActive('/destinations') ? 'text-green-600' : 'text-slate-600 hover:text-green-600'}`}>
             Destinations
           </Link>
-          <Link href="/about" className="text-xs font-black uppercase tracking-widest text-slate-400 hover:text-green-600 transition-colors">
+          <Link href="/about" className={`text-xs font-black uppercase tracking-widest transition-colors ${isActive('/about') ? 'text-green-600' : 'text-slate-600 hover:text-green-600'}`}>
             About
           </Link>
           
@@ -33,14 +38,14 @@ export default function Navbar({ locale }: { locale: string }) {
             <Link 
               href="/" 
               locale="en" 
-              className={`text-[10px] font-black uppercase tracking-widest ${locale === 'en' ? 'text-green-600' : 'text-slate-300'}`}
+              className={`text-[10px] font-black uppercase tracking-widest ${locale === 'en' ? 'text-green-600' : 'text-slate-500'}`}
             >
               EN
             </Link>
             <Link 
               href="/" 
               locale="hi" 
-              className={`text-[10px] font-black uppercase tracking-widest ${locale === 'hi' ? 'text-green-600' : 'text-slate-300'}`}
+              className={`text-[10px] font-black uppercase tracking-widest ${locale === 'hi' ? 'text-green-600' : 'text-slate-500'}`}
             >
               HI
             </Link>
@@ -49,12 +54,12 @@ export default function Navbar({ locale }: { locale: string }) {
 
         {/* CTA */}
         <div className="flex items-center gap-4">
-          <a 
-            href="tel:+919999999999" 
-            className="hidden lg:flex items-center gap-2 px-5 py-2.5 bg-slate-50 text-slate-900 text-xs font-black uppercase tracking-widest rounded-full hover:bg-slate-100 transition-colors"
+          <Link 
+            href="/contact" 
+            className="hidden lg:flex items-center gap-2 px-6 py-2.5 bg-green-600 text-white text-xs font-black uppercase tracking-widest rounded-full hover:bg-green-700 transition-all shadow-md hover:shadow-lg"
           >
-            <Phone size={14} className="text-green-600" /> +91-9999999999
-          </a>
+            {t('links.booking')}
+          </Link>
           <button className="md:hidden text-slate-900 p-2">
             <Menu size={24} />
           </button>

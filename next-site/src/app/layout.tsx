@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   },
   description: "Book premium Uttarakhand tour packages with local experts.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://uttarakhandtourandtravels.co.in"),
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

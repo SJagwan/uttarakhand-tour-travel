@@ -1,25 +1,14 @@
-import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { getTranslations } from 'next-intl/server';
+import HeroCarousel from "./HeroCarousel";
 
 export default async function HeroSection({ locale }: { locale: string }) {
   const t = await getTranslations({ locale, namespace: 'hero' });
   const common = await getTranslations({ locale, namespace: 'common' });
 
   return (
-    <section className="relative w-full h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-slate-900">
-        <Image
-          src="/uttarakhand-hero.jpg"
-          alt="Divine Uttarakhand"
-          fill
-          priority
-          quality={85}
-          className="object-cover object-center opacity-80"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 z-10" />
-      </div>
+    <section className="relative w-full h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden group">
+      <HeroCarousel />
 
       <div className="relative z-20 container mx-auto px-4 text-center text-white">
         <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-6 animate-in fade-in slide-in-from-bottom-4 duration-1000 uppercase italic tracking-tighter">

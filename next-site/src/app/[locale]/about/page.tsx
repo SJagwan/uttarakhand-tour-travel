@@ -149,7 +149,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           </h2>
           <div className="flex flex-col md:flex-row justify-center gap-8">
             <a
-              href="mailto:info@uttarakhandtourandtravels.co.in"
+              href="mailto:jagwan1997@gmail.com"
               className="flex items-center justify-center gap-4 bg-slate-900 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-white hover:text-slate-900 transition-all shadow-2xl"
             >
               <Mail size={20} /> {t('contact.emailBtn')}

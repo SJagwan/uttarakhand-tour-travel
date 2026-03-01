@@ -11,7 +11,6 @@ export const generateLocalBusinessSchema = () => {
     "image": `${process.env.NEXT_PUBLIC_SITE_URL}/logo.png`,
     "@id": `${process.env.NEXT_PUBLIC_SITE_URL}/#organization`,
     "url": process.env.NEXT_PUBLIC_SITE_URL,
-    "telephone": "+91-9999999999",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Main Road",

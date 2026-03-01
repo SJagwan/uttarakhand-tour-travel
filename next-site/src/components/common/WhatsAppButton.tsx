@@ -3,7 +3,7 @@
 import { Phone } from "lucide-react";
 
 export default function WhatsAppButton() {
-  const WHATSAPP_NUMBER = "919999999999"; // Replace with real number
+  const WHATSAPP_NUMBER = "916395561049";
   const message = encodeURIComponent("Hello! I am interested in booking a tour with Uttarakhand Tour & Travels.");
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
 

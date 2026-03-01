@@ -22,7 +22,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Email Us</p>
-                  <a href="mailto:info@uttarakhandtourandtravels.co.in" className="text-xl font-black text-slate-900">info@uttarakhandtourandtravels.co.in</a>
+                  <a href="mailto:jagwan1997@gmail.com" className="text-xl font-black text-slate-900">jagwan1997@gmail.com</a>
                 </div>
               </div>
 

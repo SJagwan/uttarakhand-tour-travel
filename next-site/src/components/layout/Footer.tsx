@@ -63,12 +63,8 @@ export default function Footer({ locale }: { locale: string }) {
               <p className="text-sm font-medium text-slate-400 leading-relaxed">Dehradun, Uttarakhand, India 248001</p>
             </li>
             <li className="flex gap-4 items-center">
-              <Phone size={20} className="text-green-600 shrink-0" />
-              <a href="tel:+919999999999" className="text-sm font-black text-slate-100 hover:text-green-600 transition-colors">+91-9999999999</a>
-            </li>
-            <li className="flex gap-4 items-center">
               <Mail size={20} className="text-green-600 shrink-0" />
-              <a href="mailto:info@uttarakhandtourandtravels.co.in" className="text-sm font-bold text-slate-400 hover:text-white transition-colors tracking-tight">info@uttarakhandtourandtravels.co.in</a>
+              <a href="mailto:jagwan1997@gmail.com" className="text-sm font-bold text-slate-400 hover:text-white transition-colors tracking-tight">jagwan1997@gmail.com</a>
             </li>
           </ul>
         </div>

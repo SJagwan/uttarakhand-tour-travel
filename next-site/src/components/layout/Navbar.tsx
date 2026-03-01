@@ -36,14 +36,14 @@ export default function Navbar({ locale }: { locale: string }) {
           {/* LANGUAGE SWITCHER */}
           <div className="flex gap-4 border-l border-slate-200 pl-10">
             <Link 
-              href="/" 
+              href={pathname || "/"} 
               locale="en" 
               className={`text-[10px] font-black uppercase tracking-widest ${locale === 'en' ? 'text-green-600' : 'text-slate-500'}`}
             >
               EN
             </Link>
             <Link 
-              href="/" 
+              href={pathname || "/"} 
               locale="hi" 
               className={`text-[10px] font-black uppercase tracking-widest ${locale === 'hi' ? 'text-green-600' : 'text-slate-500'}`}
             >

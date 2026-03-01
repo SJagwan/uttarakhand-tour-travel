@@ -427,7 +427,7 @@ export async function getAllTours(locale: string): Promise<TourPackage[]> {
 
     return {
       id: y.name,
-      slug: y.slug,
+      slug: y.slug || generateTourSlug(y.name),
       title: y.name,
       shortDescription: y.tagline,
       longDescription: y.description,
@@ -498,7 +498,7 @@ export async function getAllDestinations(locale: string) {
   const messages = (await getMessages({ locale })) as any;
   return messages.destinations.places.map((p: any) => ({
     id: p.name,
-    slug: p.slug,
+    slug: p.slug || generateDestSlug(p.name),
     name: p.name,
     tagline: p.tagline,
     description: p.description,

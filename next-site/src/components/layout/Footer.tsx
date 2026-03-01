@@ -19,7 +19,7 @@ export default async function Footer({ locale }: { locale: string }) {
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
         {/* BRAND */}
         <div className="space-y-6">
-          <Link href="/" className="flex flex-col group">
+          <Link href="/" locale={locale as any} className="flex flex-col group">
             <span className="text-2xl md:text-3xl font-black text-white tracking-tighter uppercase italic group-hover:text-green-600 transition-colors leading-none">
               Uttarakhand <br />
               <span className="text-green-600 group-hover:text-white not-italic">
@@ -59,26 +59,28 @@ export default async function Footer({ locale }: { locale: string }) {
           </h3>
           <ul className="space-y-4 text-sm font-bold uppercase tracking-widest text-slate-400">
             <li>
-              <Link href="/tours" className="hover:text-white transition-colors">
+              <Link href="/tours" locale={locale as any} className="hover:text-white transition-colors">
                 All Packages
               </Link>
             </li>
             <li>
               <Link
                 href="/destinations"
+                locale={locale as any}
                 className="hover:text-white transition-colors"
               >
                 {nav("links.destinations")}
               </Link>
             </li>
             <li>
-              <Link href="/about" className="hover:text-white transition-colors">
+              <Link href="/about" locale={locale as any} className="hover:text-white transition-colors">
                 About Us
               </Link>
             </li>
             <li>
               <Link
                 href="/contact"
+                locale={locale as any}
                 className="hover:text-white transition-colors"
               >
                 {t("contactUs")}
@@ -96,6 +98,7 @@ export default async function Footer({ locale }: { locale: string }) {
             <li>
               <Link
                 href="/destinations/kedarnath"
+                locale={locale as any}
                 className="hover:text-white transition-colors"
               >
                 Kedarnath
@@ -104,6 +107,7 @@ export default async function Footer({ locale }: { locale: string }) {
             <li>
               <Link
                 href="/destinations/badrinath"
+                locale={locale as any}
                 className="hover:text-white transition-colors"
               >
                 Badrinath
@@ -112,6 +116,7 @@ export default async function Footer({ locale }: { locale: string }) {
             <li>
               <Link
                 href="/destinations/mussoorie"
+                locale={locale as any}
                 className="hover:text-white transition-colors"
               >
                 Mussoorie
@@ -120,6 +125,7 @@ export default async function Footer({ locale }: { locale: string }) {
             <li>
               <Link
                 href="/destinations/nainital"
+                locale={locale as any}
                 className="hover:text-white transition-colors"
               >
                 Nainital
@@ -161,10 +167,10 @@ export default async function Footer({ locale }: { locale: string }) {
           © {currentYear} {t("copyright")}
         </p>
         <div className="flex gap-10 text-[10px] font-black uppercase tracking-widest text-slate-500">
-          <Link href="/privacy" className="hover:text-white transition-colors">
+          <Link href="/privacy" locale={locale as any} className="hover:text-white transition-colors">
             Privacy Policy
           </Link>
-          <Link href="/terms" className="hover:text-white transition-colors">
+          <Link href="/terms" locale={locale as any} className="hover:text-white transition-colors">
             Terms of Service
           </Link>
         </div>

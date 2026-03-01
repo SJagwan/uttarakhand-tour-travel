@@ -22,12 +22,14 @@ export default async function HeroSection({ locale }: { locale: string }) {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
             href="/tours"
+            locale={locale as any}
             className="w-full sm:w-auto px-10 py-5 bg-green-600 hover:bg-green-700 text-white rounded-full font-black uppercase italic tracking-widest transition-all shadow-xl hover:shadow-green-600/20 text-xs"
           >
             {t('bookNow')}
           </Link>
           <Link
             href="/contact"
+            locale={locale as any}
             className="w-full sm:w-auto px-10 py-5 bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white rounded-full font-black uppercase italic tracking-widest transition-all text-xs"
           >
             {common('customItinerary')}

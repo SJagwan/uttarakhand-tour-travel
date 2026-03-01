@@ -104,6 +104,7 @@ export default function TourCard({ tour }: Props) {
 
           <Link
             href={`/tours/${tour.slug}`}
+            locale={locale as any}
             className="w-12 h-12 bg-slate-900 text-white rounded-2xl flex items-center justify-center hover:bg-green-600 transition-all shadow-lg hover:-translate-y-1"
           >
             <ArrowRight size={20} />

@@ -27,6 +27,7 @@ export default async function FeaturedTours({ locale }: { locale: string }) {
           </div>
           <Link
             href="/tours"
+            locale={locale as any}
             className="group inline-flex items-center gap-2 text-slate-900 font-black text-xs uppercase tracking-widest hover:text-green-600 transition-colors border-b-2 border-slate-900 hover:border-green-600 pb-1"
           >
             {t("exploreAll")}

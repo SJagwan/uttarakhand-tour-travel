@@ -15,7 +15,7 @@ export default function Navbar({ locale }: { locale: string }) {
     <nav className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-xl border-b border-slate-100 shadow-sm">
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         {/* LOGO */}
-        <Link href="/" className="flex flex-col group">
+        <Link href="/" locale={locale as any} className="flex flex-col group">
           <span className="text-xl md:text-2xl font-black text-slate-900 tracking-tighter uppercase italic group-hover:text-green-600 transition-colors leading-none">
             {t('logo').split(' ')[0]} <br />
             <span className="text-green-600 group-hover:text-slate-900 not-italic">{t('logo').split(' ').slice(1).join(' ')}</span>
@@ -24,13 +24,13 @@ export default function Navbar({ locale }: { locale: string }) {
 
         {/* DESKTOP LINKS */}
         <div className="hidden md:flex items-center gap-10">
-          <Link href="/tours" className={`text-xs font-black uppercase tracking-widest transition-colors ${isActive('/tours') ? 'text-green-600' : 'text-slate-600 hover:text-green-600'}`}>
+          <Link href="/tours" locale={locale as any} className={`text-xs font-black uppercase tracking-widest transition-colors ${isActive('/tours') ? 'text-green-600' : 'text-slate-600 hover:text-green-600'}`}>
             {common('packages')}
           </Link>
-          <Link href="/destinations" className={`text-xs font-black uppercase tracking-widest transition-colors ${isActive('/destinations') ? 'text-green-600' : 'text-slate-600 hover:text-green-600'}`}>
+          <Link href="/destinations" locale={locale as any} className={`text-xs font-black uppercase tracking-widest transition-colors ${isActive('/destinations') ? 'text-green-600' : 'text-slate-600 hover:text-green-600'}`}>
             {t('links.destinations')}
           </Link>
-          <Link href="/about" className={`text-xs font-black uppercase tracking-widest transition-colors ${isActive('/about') ? 'text-green-600' : 'text-slate-600 hover:text-green-600'}`}>
+          <Link href="/about" locale={locale as any} className={`text-xs font-black uppercase tracking-widest transition-colors ${isActive('/about') ? 'text-green-600' : 'text-slate-600 hover:text-green-600'}`}>
             {t('links.about')}
           </Link>
           
@@ -57,6 +57,7 @@ export default function Navbar({ locale }: { locale: string }) {
         <div className="flex items-center gap-4">
           <Link 
             href="/contact" 
+            locale={locale as any}
             className="hidden lg:flex items-center gap-2 px-6 py-2.5 bg-green-600 text-white text-xs font-black uppercase tracking-widest rounded-full hover:bg-green-700 transition-all shadow-md hover:shadow-lg"
           >
             {t('links.booking')}

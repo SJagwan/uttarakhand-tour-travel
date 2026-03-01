@@ -51,6 +51,7 @@ export default async function DestinationsPage({ params }: Props) {
             <Link
               key={dest.id}
               href={`/destinations/${dest.slug}`}
+              locale={locale as any}
               className="group block animate-in fade-in slide-in-from-bottom-4 duration-700"
               style={{
                 animationDelay: `${index * 100}ms`,

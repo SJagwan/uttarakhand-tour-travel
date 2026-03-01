@@ -160,6 +160,7 @@ export default async function DestinationDetailPage({ params }: Props) {
               </p>
               <Link
                 href="/tours"
+                locale={locale as any}
                 className="w-full py-5 bg-green-600 hover:bg-green-700 text-white rounded-2xl font-black uppercase italic tracking-widest transition-all flex items-center justify-center gap-3 shadow-xl hover:shadow-green-600/30"
               >
                 Explore {nav("links.booking")} <ArrowRight size={18} />

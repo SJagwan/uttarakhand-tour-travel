@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
-export default function HeroSection() {
-  const t = useTranslations('hero');
+export default async function HeroSection({ locale }: { locale: string }) {
+  const t = await getTranslations({ locale, namespace: 'hero' });
+  const common = await getTranslations({ locale, namespace: 'common' });
 
   return (
     <section className="relative w-full h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
@@ -40,7 +41,7 @@ export default function HeroSection() {
             href="/contact"
             className="w-full sm:w-auto px-10 py-5 bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white rounded-full font-black uppercase italic tracking-widest transition-all text-xs"
           >
-            Custom Itinerary
+            {common('customItinerary')}
           </Link>
         </div>
       </div>

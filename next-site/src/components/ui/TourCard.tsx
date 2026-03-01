@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { TourPackage } from "@/types/api.types";
 import { Clock, ArrowRight, Star, CheckCircle2, Calendar } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
 
 interface Props {
   tour: TourPackage;
@@ -12,6 +15,9 @@ interface Props {
  * Optimized for high-conversion visual hierarchy.
  */
 export default function TourCard({ tour }: Props) {
+  const t = useTranslations("common");
+  const locale = useLocale();
+
   return (
     <div className="group bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 flex flex-col h-full">
       {/* Image Container with Duration Overlay */}
@@ -28,7 +34,7 @@ export default function TourCard({ tour }: Props) {
         {/* Duration Badge */}
         <div className="absolute top-5 left-5 px-4 py-2 bg-slate-900/90 backdrop-blur-md rounded-2xl text-[10px] font-black uppercase tracking-widest text-white shadow-xl flex items-center gap-2">
           <Clock size={12} className="text-green-400" />
-          {tour.durationNights}N / {tour.durationDays}D
+          {tour.durationNights} {t("nights")} / {tour.durationDays} {t("days")}
         </div>
 
         {/* Rating Badge */}
@@ -50,7 +56,7 @@ export default function TourCard({ tour }: Props) {
 
         {tour.bestTime && (
           <div className="flex items-center gap-1.5 text-[10px] font-bold text-green-600 uppercase tracking-widest mb-4">
-            <Calendar size={12} /> Best Time: {tour.bestTime}
+            <Calendar size={12} /> {t("bestTime")}: {tour.bestTime}
           </div>
         )}
 
@@ -84,14 +90,14 @@ export default function TourCard({ tour }: Props) {
         <div className="mt-auto pt-6 border-t border-slate-50 flex items-center justify-between">
           <div>
             <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">
-              Starting Price
+              {locale === "hi" ? "शुरुआती कीमत" : "Starting Price"}
             </p>
             <div className="flex items-baseline gap-1">
               <span className="text-3xl font-black text-slate-900 leading-none tracking-tighter italic">
                 ₹{tour.price.toLocaleString("en-IN")}
               </span>
               <span className="text-[10px] font-bold text-slate-400 uppercase">
-                / Person
+                / {t("day")}
               </span>
             </div>
           </div>

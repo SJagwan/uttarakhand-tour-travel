@@ -8,6 +8,7 @@ import HomeBookingSection from '@/components/sections/HomeBookingSection';
 import { generateLocalBusinessSchema } from '@/lib/seo/schema';
 import { Metadata } from 'next';
 import { Suspense } from 'react';
+import { getTranslations } from 'next-intl/server';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -15,18 +16,19 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'navbar' });
+  const h = await getTranslations({ locale, namespace: 'hero' });
   
   return {
-    title: locale === 'hi' ? 'उत्तराखंड टूर एंड ट्रेवल्स' : 'Uttarakhand Tour & Travels',
-    description: locale === 'hi' 
-      ? 'उत्तराखंड के लिए अपनी यात्रा बुक करें। ' 
-      : 'Book your perfect trip to Uttarakhand.',
+    title: t('logo'),
+    description: h('subheading'),
   };
 }
 
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   const schema = generateLocalBusinessSchema();
+  const t = await getTranslations({ locale, namespace: 'common' });
 
   return (
     <main className="flex flex-col min-h-screen bg-white">
@@ -35,19 +37,19 @@ export default async function HomePage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       
-      <HeroSection />
+      <HeroSection locale={locale} />
 
-      <Suspense fallback={<div className="h-96 w-full flex items-center justify-center bg-slate-50">Loading experiences...</div>}>
+      <Suspense fallback={<div className="h-96 w-full flex items-center justify-center bg-slate-50">{t('processing')}</div>}>
         <FeaturedTours locale={locale} />
       </Suspense>
 
-      <WhyChooseUs />
+      <WhyChooseUs locale={locale} />
 
-      <OurFleet />
+      <OurFleet locale={locale} />
 
-      <HowItWorks />
+      <HowItWorks locale={locale} />
 
-      <Testimonials />
+      <Testimonials locale={locale} />
 
       <HomeBookingSection />
 

@@ -3,6 +3,7 @@
 import { useActionState, useState } from "react";
 import { submitBooking, BookingState } from "@/app/actions/booking";
 import { Phone, Users, Calendar, MapPin, MessageSquare, Send, Loader2, CheckCircle, Car } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const initialState: BookingState = {};
 
@@ -12,6 +13,9 @@ const initialState: BookingState = {};
  */
 export default function HomeBookingSection() {
   const [state, formAction, isPending] = useActionState(submitBooking, initialState);
+  const t = useTranslations("homeBooking");
+  const common = useTranslations("common");
+  const b = useTranslations("booking");
 
   if (state.success) {
     return (
@@ -21,9 +25,9 @@ export default function HomeBookingSection() {
             <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
               <CheckCircle className="w-10 h-10 text-green-600" />
             </div>
-            <h2 className="text-4xl font-black text-slate-900 mb-4 tracking-tighter uppercase italic">Request Received!</h2>
+            <h2 className="text-4xl font-black text-slate-900 mb-4 tracking-tighter uppercase italic">{common("requestReceived")}</h2>
             <p className="text-slate-600 text-lg font-medium leading-relaxed">
-              {state.message}
+              {state.message || b("successMessage")}
             </p>
           </div>
         </div>
@@ -43,11 +47,11 @@ export default function HomeBookingSection() {
           {/* Text Content */}
           <div className="animate-in fade-in slide-in-from-left-8 duration-1000">
             <h2 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter uppercase italic leading-[0.9]">
-              Plan Your <br />
-              <span className="text-green-500 not-italic">Dream Trip</span>
+              {t("heading").split(" ").slice(0, 2).join(" ")} <br />
+              <span className="text-green-500 not-italic">{t("heading").split(" ").slice(2).join(" ")}</span>
             </h2>
             <p className="text-slate-400 text-xl font-medium leading-relaxed mb-12 max-w-md">
-              Not sure which package to choose? Tell us your requirements and we'll create a custom itinerary just for you.
+              {t("subheading")}
             </p>
             
             <div className="flex flex-wrap gap-8">
@@ -55,13 +59,13 @@ export default function HomeBookingSection() {
                 <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-green-500 border border-white/10">
                   <Car size={20} />
                 </div>
-                <span className="text-white font-bold uppercase tracking-widest text-xs">Private Fleet</span>
+                <span className="text-white font-bold uppercase tracking-widest text-xs">{t("privateFleet")}</span>
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-green-500 border border-white/10">
                   <Users size={20} />
                 </div>
-                <span className="text-white font-bold uppercase tracking-widest text-xs">Local Experts</span>
+                <span className="text-white font-bold uppercase tracking-widest text-xs">{t("localExperts")}</span>
               </div>
             </div>
           </div>
@@ -72,22 +76,22 @@ export default function HomeBookingSection() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Name */}
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Full Name</label>
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{b("nameLabel")}</label>
                   <input
                     name="name"
                     type="text"
-                    placeholder="Enter your name"
+                    placeholder={b("namePlaceholder")}
                     required
                     className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-green-500 outline-none transition font-medium text-slate-900"
                   />
                 </div>
                 {/* Phone */}
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Phone Number</label>
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{b("phoneLabel")}</label>
                   <input
                     name="phone"
                     type="tel"
-                    placeholder="10-digit mobile"
+                    placeholder={b("phonePlaceholder")}
                     required
                     className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-green-500 outline-none transition font-medium text-slate-900"
                   />
@@ -97,13 +101,13 @@ export default function HomeBookingSection() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Destination */}
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Destination</label>
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{b("destinationLabel")}</label>
                   <div className="relative">
                     <MapPin className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300" size={18} />
                     <input
                       name="destination"
                       type="text"
-                      placeholder="Where to?"
+                      placeholder={b("destinationPlaceholder")}
                       required
                       className="w-full pl-12 pr-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-green-500 outline-none transition font-medium text-slate-900"
                     />
@@ -111,14 +115,14 @@ export default function HomeBookingSection() {
                 </div>
                 {/* Persons */}
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">No. of Persons</label>
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{b("passengersLabel")}</label>
                   <div className="relative">
                     <Users className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300" size={18} />
                     <input
                       name="passengers"
                       type="number"
                       min="1"
-                      placeholder="How many?"
+                      placeholder={b("passengersPlaceholder")}
                       required
                       className="w-full pl-12 pr-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-green-500 outline-none transition font-medium text-slate-900"
                     />
@@ -129,7 +133,7 @@ export default function HomeBookingSection() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Date */}
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Travel Date</label>
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{b("dateLabel")}</label>
                   <div className="relative">
                     <Calendar className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300" size={18} />
                     <input
@@ -142,11 +146,11 @@ export default function HomeBookingSection() {
                 </div>
                 {/* Pickup */}
                 <div className="space-y-1.5">
-                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Pickup Location</label>
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{b("pickupLabel")}</label>
                   <input
                     name="pickup"
                     type="text"
-                    placeholder="e.g. Dehradun Airport"
+                    placeholder={b("pickupPlaceholder")}
                     required
                     className="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-green-500 outline-none transition font-medium text-slate-900"
                   />
@@ -155,13 +159,13 @@ export default function HomeBookingSection() {
 
               {/* Message */}
               <div className="space-y-1.5">
-                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Additional Requirements</label>
+                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{b("messageLabel")}</label>
                 <div className="relative">
                   <MessageSquare className="absolute left-5 top-5 text-slate-300" size={18} />
                   <textarea
                     name="message"
                     rows={3}
-                    placeholder="Anything else we should know?"
+                    placeholder={b("messagePlaceholder")}
                     className="w-full pl-12 pr-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-green-500 outline-none transition font-medium resize-none"
                   />
                 </div>
@@ -174,11 +178,11 @@ export default function HomeBookingSection() {
               >
                 {isPending ? (
                   <>
-                    <Loader2 className="w-5 h-5 animate-spin" /> Sending...
+                    <Loader2 className="w-5 h-5 animate-spin" /> {common("processing")}
                   </>
                 ) : (
                   <>
-                    Get Free Quote <Send size={18} />
+                    {common("getFreeQuote")} <Send size={18} />
                   </>
                 )}
               </button>

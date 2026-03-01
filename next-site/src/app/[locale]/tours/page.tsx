@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { getAllTours } from "@/lib/api/tours";
 import TourCard from "@/components/ui/TourCard";
+import { getTranslations } from "next-intl/server";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -8,11 +9,15 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "navbar" });
+  const c = await getTranslations({ locale, namespace: "common" });
+
   return {
-    title: locale === 'hi' ? 'सभी टूर पैकेज' : 'All Tour Packages',
-    description: locale === 'hi' 
-      ? 'हमारे सभी उत्तराखंड टूर पैकेजों की सूची देखें।' 
-      : 'Browse our complete list of Uttarakhand tour packages.',
+    title: `${c("packages")} | ${t("logo")}`,
+    description:
+      locale === "hi"
+        ? "हमारे सभी उत्तराखंड टूर पैकेजों की सूची देखें।"
+        : "Browse our complete list of Uttarakhand tour packages.",
   };
 }
 
@@ -23,6 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ToursPage({ params }: Props) {
   const { locale } = await params;
   const tours = await getAllTours(locale);
+  const t = await getTranslations({ locale, namespace: "common" });
 
   return (
     <div className="bg-white min-h-screen">
@@ -31,10 +37,13 @@ export default async function ToursPage({ params }: Props) {
         <div className="absolute inset-0 bg-green-600/10 opacity-50" />
         <div className="container mx-auto px-4 relative z-10">
           <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter uppercase italic">
-            All <span className="text-green-500 not-italic">Packages</span>
+            {locale === "hi" ? "सभी" : "All"}{" "}
+            <span className="text-green-500 not-italic">{t("packages")}</span>
           </h1>
           <p className="text-slate-400 text-xl font-medium max-w-2xl mx-auto leading-relaxed">
-            Explore our diverse collection of spiritual, adventure, and leisure tours across Uttarakhand.
+            {locale === "hi"
+              ? "उत्तराखंड में हमारे आध्यात्मिक, साहसिक और अवकाश पर्यटन के विविध संग्रह का अन्वेषण करें।"
+              : "Explore our diverse collection of spiritual, adventure, and leisure tours across Uttarakhand."}
           </p>
         </div>
       </header>
@@ -43,24 +52,36 @@ export default async function ToursPage({ params }: Props) {
       <main className="container mx-auto px-4 py-24">
         <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
           <div className="flex items-center gap-4">
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-slate-400">Filter By:</span>
+            <span className="text-xs font-black uppercase tracking-[0.2em] text-slate-400">
+              {locale === "hi" ? "फ़िल्टर करें:" : "Filter By:"}
+            </span>
             <div className="flex gap-2">
-              <span className="px-4 py-2 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest rounded-full cursor-default">All</span>
-              <span className="px-4 py-2 bg-slate-50 text-slate-400 text-[10px] font-black uppercase tracking-widest rounded-full cursor-not-allowed">Pilgrimage</span>
-              <span className="px-4 py-2 bg-slate-50 text-slate-400 text-[10px] font-black uppercase tracking-widest rounded-full cursor-not-allowed">Hill Stations</span>
+              <span className="px-4 py-2 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest rounded-full cursor-default">
+                {locale === "hi" ? "सभी" : "All"}
+              </span>
+              <span className="px-4 py-2 bg-slate-50 text-slate-400 text-[10px] font-black uppercase tracking-widest rounded-full cursor-not-allowed">
+                {locale === "hi" ? "तीर्थयात्रा" : "Pilgrimage"}
+              </span>
+              <span className="px-4 py-2 bg-slate-50 text-slate-400 text-[10px] font-black uppercase tracking-widest rounded-full cursor-not-allowed">
+                {locale === "hi" ? "हिल स्टेशन" : "Hill Stations"}
+              </span>
             </div>
           </div>
           <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-            Showing {tours.length} results
+            {locale === "hi" ? "दिखा रहा है" : "Showing"} {tours.length}{" "}
+            {locale === "hi" ? "परिणाम" : "results"}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {tours.map((tour: any, index: number) => (
-            <div 
-              key={tour.id} 
+            <div
+              key={tour.id}
               className="animate-in fade-in slide-in-from-bottom-4 duration-700"
-              style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'both' }}
+              style={{
+                animationDelay: `${index * 100}ms`,
+                animationFillMode: "both",
+              }}
             >
               <TourCard tour={tour} />
             </div>

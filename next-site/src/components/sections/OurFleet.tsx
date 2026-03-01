@@ -1,32 +1,35 @@
 import Image from "next/image";
 import { CheckCircle2, ShieldCheck, Zap } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
-const fleet = [
-  {
-    name: "Luxury Tempo Traveller",
-    seats: "13 Seater",
-    features: [
-      "Fully Air Conditioned",
-      "Pushback Seats",
-      "Ample Luggage Space",
-      "Bluetooth Music System",
-    ],
-    img: "/fleet/tempo-traveller-front.jpg", // Replace with real photo of your Tempo Traveller
-  },
-  {
-    name: "Premium SUV",
-    seats: "6 Seater",
-    features: [
-      "Neat & Clean Interiors",
-      "Experienced Driver",
-      "All Uttarakhand Permits",
-      "Carrier for Bags",
-    ],
-    img: "/fleet/ertica-front.jpeg", // Replace with real photo of your Car
-  },
-];
+export default async function OurFleet({ locale }: { locale: string }) {
+  const t = await getTranslations({ locale, namespace: "ourFleet" });
 
-export default function OurFleet() {
+  const fleet = [
+    {
+      name: t("vehicles.0.name"),
+      seats: t("vehicles.0.seats"),
+      features: [
+        t("vehicles.0.features.0"),
+        t("vehicles.0.features.1"),
+        t("vehicles.0.features.2"),
+        t("vehicles.0.features.3"),
+      ],
+      img: "/fleet/tempo-traveller-front.jpg",
+    },
+    {
+      name: t("vehicles.1.name"),
+      seats: t("vehicles.1.seats"),
+      features: [
+        t("vehicles.1.features.0"),
+        t("vehicles.1.features.1"),
+        t("vehicles.1.features.2"),
+        t("vehicles.1.features.3"),
+      ],
+      img: "/fleet/ertica-front.jpeg",
+    },
+  ];
+
   return (
     <section className="py-24 bg-slate-900 overflow-hidden relative">
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-green-600 to-transparent opacity-20" />
@@ -35,14 +38,15 @@ export default function OurFleet() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
           <div className="animate-in fade-in slide-in-from-left-4 duration-700">
             <h2 className="text-4xl md:text-7xl font-black text-white mb-6 tracking-tighter uppercase italic leading-[0.9]">
-              Our{" "}
-              <span className="text-green-500 not-italic">Private Fleet</span>
+              {t("heading").split(" ")[0]}{" "}
+              <span className="text-green-500 not-italic">
+                {t("heading").split(" ").slice(1).join(" ")}
+              </span>
             </h2>
             <div className="w-24 h-2 bg-green-600 rounded-full" />
           </div>
           <p className="text-slate-400 text-lg font-medium max-w-md leading-relaxed">
-            We don't use third-party cabs. We own and maintain our fleet to
-            guarantee your safety and comfort.
+            {t("subheading")}
           </p>
         </div>
 
@@ -65,7 +69,7 @@ export default function OurFleet() {
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute top-4 left-4 px-4 py-2 bg-green-600 text-white text-[10px] font-black uppercase tracking-widest rounded-xl shadow-xl">
-                    Owner Driven
+                    {t("ownerDriven")}
                   </div>
                 </div>
 
@@ -92,10 +96,11 @@ export default function OurFleet() {
                   <div className="mt-auto pt-6 border-t border-white/5 flex items-center gap-4">
                     <div className="flex items-center gap-2 px-3 py-1.5 bg-white/5 rounded-lg border border-white/10 text-[9px] font-black uppercase tracking-widest text-slate-400">
                       <ShieldCheck size={12} className="text-green-600" />{" "}
-                      Sanitized
+                      {t("sanitized")}
                     </div>
                     <div className="flex items-center gap-2 px-3 py-1.5 bg-white/5 rounded-lg border border-white/10 text-[9px] font-black uppercase tracking-widest text-slate-400">
-                      <Zap size={12} className="text-green-600" /> GPS Tracked
+                      <Zap size={12} className="text-green-600" />{" "}
+                      {t("gpsTracked")}
                     </div>
                   </div>
                 </div>

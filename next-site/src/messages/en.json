@@ -1,4 +1,27 @@
 {
+  "common": {
+    "exploreAll": "Explore All Packages",
+    "customItinerary": "Custom Itinerary",
+    "enquireNow": "Enquire Now",
+    "getFreeQuote": "Get Free Quote",
+    "processing": "Processing...",
+    "requestReceived": "Request Received!",
+    "featured": "Featured",
+    "packages": "Packages",
+    "bestTime": "Best Time",
+    "reviews": "Reviews",
+    "packageOverview": "Package Overview",
+    "keyHighlights": "Key Highlights",
+    "detailedItinerary": "Detailed Itinerary",
+    "stay": "Stay",
+    "inclusions": "Inclusions",
+    "exclusions": "Exclusions",
+    "cancellationPolicy": "Cancellation Policy",
+    "cancellationTerms": "* Cancellation before 30 days: 100% Refund <br /> * Cancellation 15-30 days: 50% Refund <br /> * Cancellation less than 15 days: No Refund",
+    "day": "Day",
+    "nights": "Nights",
+    "days": "Days"
+  },
   "booking": {
     "title": "Start Your Journey",
     "subtitle": "Fill out the form below and we'll get back to you with the best rates.",
@@ -37,7 +60,8 @@
     "links": {
       "destinations": "Destinations",
       "booking": "Enquire",
-      "contact": "Contact"
+      "contact": "Contact",
+      "about": "About"
     }
   },
   "destinations": {
@@ -323,7 +347,8 @@
     "bookNow": "Plan Your Trip"
   },
   "whyChooseUs": {
-    "heading": "Why Choose Us",
+    "heading": "Why Choose Us?",
+    "subheading": "We are dedicated to providing the most authentic and comfortable experience of Uttarakhand. Here is what makes us the preferred choice for thousands of travelers.",
     "features": {
       "feature1": {
         "icon": "Bus",
@@ -354,11 +379,35 @@
         "icon": "Shield",
         "title": "Safety & Hygiene First",
         "description": "Vehicles are sanitized before every trip and equipped with essential safety features."
+      },
+      "feature1Alt": {
+        "title": "Safe & Secure",
+        "description": "Verified local operators and modern vehicles for a worry-free journey."
+      },
+      "feature2Alt": {
+        "title": "Expert Guides",
+        "description": "Our drivers are local experts who know the best hidden spots in the mountains."
+      },
+      "feature3Alt": {
+        "title": "24/7 Support",
+        "description": "Round-the-clock assistance for all your travel needs and emergencies."
+      },
+      "feature4Alt": {
+        "title": "Best Price",
+        "description": "Transparent pricing with no hidden costs. Best value for your money."
+      },
+      "feature5Alt": {
+        "title": "Custom Tours",
+        "description": "Tailor-made itineraries to match your interests and budget."
+      },
+      "feature6Alt": {
+        "title": "Easy Booking",
+        "description": "Instant quotes and easy confirmation. No complex paperwork."
       }
     }
   },
   "howItWorks": {
-    "heading": "How It Works",
+    "heading": "How It Works?",
     "steps": {
       "step1": {
         "title": "Send Enquiry",
@@ -385,7 +434,7 @@
       {
         "name": "Anjali Verma",
         "location": "Mumbai",
-        "text": "Highly recommended for family trips. उन्होंने पिकअप से लेकर ड्रॉप तक हर चीज का ध्यान रखा।"
+        "text": "Highly recommended for family trips. They took care of everything from pickup to drop."
       },
       {
         "name": "Amit Patel",
@@ -440,5 +489,51 @@
       "callBtn": "Call Now",
       "emailBtn": "Email Us"
     }
+  },
+  "contactPage": {
+    "heading": "Get in Touch",
+    "subheading": "Have questions about our tour packages or need a custom itinerary? Our experts are ready to help you plan the perfect journey.",
+    "emailLabel": "Email Us",
+    "visitLabel": "Visit Us",
+    "address": "Dehradun, Uttarakhand, India"
+  },
+  "ourFleet": {
+    "heading": "Our Private Fleet",
+    "subheading": "We don't use third-party cabs. We own and maintain our fleet to guarantee your safety and comfort.",
+    "ownerDriven": "Owner Driven",
+    "sanitized": "Sanitized",
+    "gpsTracked": "GPS Tracked",
+    "vehicles": [
+      {
+        "name": "Luxury Tempo Traveller",
+        "seats": "13 Seater",
+        "features": [
+          "Fully Air Conditioned",
+          "Pushback Seats",
+          "Ample Luggage Space",
+          "Bluetooth Music System"
+        ]
+      },
+      {
+        "name": "Premium SUV",
+        "seats": "6 Seater",
+        "features": [
+          "Neat & Clean Interiors",
+          "Experienced Driver",
+          "All Uttarakhand Permits",
+          "Carrier for Bags"
+        ]
+      }
+    ]
+  },
+  "homeBooking": {
+    "heading": "Plan Your Dream Trip",
+    "subheading": "Not sure which package to choose? Tell us your requirements and we'll create a custom itinerary just for you.",
+    "privateFleet": "Private Fleet",
+    "localExperts": "Local Experts"
+  },
+  "tourGallery": {
+    "heading": "Tour Gallery",
+    "subheading": "* Real photos from our recent trips"
   }
 }

@@ -1,18 +1,28 @@
 import BookingWidget from "@/components/sections/BookingWidget";
 import { Mail, MapPin } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
-export default function ContactPage() {
+export default async function ContactPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "contactPage" });
+
   return (
     <div className="bg-white">
       <div className="container mx-auto px-4 py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div>
             <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-8 tracking-tighter uppercase italic">
-              Get in <span className="text-green-600">Touch</span>
+              {t("heading").split(" ").slice(0, 2).join(" ")}{" "}
+              <span className="text-green-600">
+                {t("heading").split(" ").slice(2).join(" ")}
+              </span>
             </h1>
             <p className="text-slate-500 text-lg font-medium leading-relaxed mb-12 max-w-lg">
-              Have questions about our tour packages or need a custom itinerary? 
-              Our experts are ready to help you plan the perfect journey.
+              {t("subheading")}
             </p>
 
             <div className="space-y-8">
@@ -21,8 +31,15 @@ export default function ContactPage() {
                   <Mail size={24} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Email Us</p>
-                  <a href="mailto:jagwan1997@gmail.com" className="text-xl font-black text-slate-900">jagwan1997@gmail.com</a>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">
+                    {t("emailLabel")}
+                  </p>
+                  <a
+                    href="mailto:jagwan1997@gmail.com"
+                    className="text-xl font-black text-slate-900"
+                  >
+                    jagwan1997@gmail.com
+                  </a>
                 </div>
               </div>
 
@@ -31,15 +48,23 @@ export default function ContactPage() {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Visit Us</p>
-                  <p className="text-xl font-black text-slate-900 leading-tight">Dehradun, Uttarakhand, India</p>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">
+                    {t("visitLabel")}
+                  </p>
+                  <p className="text-xl font-black text-slate-900 leading-tight">
+                    {t("address")}
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
           <div>
-            <BookingWidget tourId="general-enquiry" tourTitle="General Enquiry" basePrice={0} />
+            <BookingWidget
+              tourId="general-enquiry"
+              tourTitle={locale === "hi" ? "सामान्य पूछताछ" : "General Enquiry"}
+              basePrice={0}
+            />
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import { Menu, Phone, MapPin } from "lucide-react";
 
 export default function Navbar({ locale }: { locale: string }) {
   const t = useTranslations('navbar');
+  const common = useTranslations('common');
   const pathname = usePathname();
 
   const isActive = (path: string) => pathname === path || pathname?.startsWith(`${path}/`);
@@ -16,21 +17,21 @@ export default function Navbar({ locale }: { locale: string }) {
         {/* LOGO */}
         <Link href="/" className="flex flex-col group">
           <span className="text-xl md:text-2xl font-black text-slate-900 tracking-tighter uppercase italic group-hover:text-green-600 transition-colors leading-none">
-            Uttarakhand <br />
-            <span className="text-green-600 group-hover:text-slate-900 not-italic">Tour & Travels</span>
+            {t('logo').split(' ')[0]} <br />
+            <span className="text-green-600 group-hover:text-slate-900 not-italic">{t('logo').split(' ').slice(1).join(' ')}</span>
           </span>
         </Link>
 
         {/* DESKTOP LINKS */}
         <div className="hidden md:flex items-center gap-10">
           <Link href="/tours" className={`text-xs font-black uppercase tracking-widest transition-colors ${isActive('/tours') ? 'text-green-600' : 'text-slate-600 hover:text-green-600'}`}>
-            Tours
+            {common('packages')}
           </Link>
           <Link href="/destinations" className={`text-xs font-black uppercase tracking-widest transition-colors ${isActive('/destinations') ? 'text-green-600' : 'text-slate-600 hover:text-green-600'}`}>
-            Destinations
+            {t('links.destinations')}
           </Link>
           <Link href="/about" className={`text-xs font-black uppercase tracking-widest transition-colors ${isActive('/about') ? 'text-green-600' : 'text-slate-600 hover:text-green-600'}`}>
-            About
+            {t('links.about')}
           </Link>
           
           {/* LANGUAGE SWITCHER */}

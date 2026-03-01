@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getTourBySlug, getAllTourSlugs } from "@/lib/api/tours";
 import { generateTourSchema } from "@/lib/seo/schema";
 import BookingWidget from "@/components/sections/BookingWidget";
+import { getTranslations } from "next-intl/server";
 
 import {
   Clock,
@@ -40,6 +41,7 @@ export async function generateStaticParams() {
 export default async function TourDetailPage({ params }: Props) {
   const { slug, locale } = await params;
   const tour = await getTourBySlug(slug, locale);
+  const t = await getTranslations({ locale, namespace: "common" });
 
   if (!tour) notFound();
 
@@ -67,13 +69,14 @@ export default async function TourDetailPage({ params }: Props) {
           <div className="container mx-auto">
             <div className="flex flex-wrap gap-4 mb-8 items-center">
               <span className="bg-green-600 px-5 py-2 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] italic shadow-xl">
-                {tour.durationNights}N / {tour.durationDays}D Package
+                {tour.durationNights} {t("nights")} / {tour.durationDays}{" "}
+                {t("days")}
               </span>
               {tour.rating && tour.reviewCount && (
                 <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2 rounded-2xl border border-white/10">
                   <Star size={14} className="text-amber-400 fill-amber-400" />
                   <span className="text-sm font-black uppercase italic tracking-widest">
-                    {tour.rating} ({tour.reviewCount} Reviews)
+                    {tour.rating} ({tour.reviewCount} {t("reviews")})
                   </span>
                 </div>
               )}
@@ -98,7 +101,7 @@ export default async function TourDetailPage({ params }: Props) {
               <div className="flex items-center gap-3 mt-4 text-green-400">
                 <Calendar size={18} />
                 <span className="text-xs font-bold uppercase tracking-widest">
-                  Best Time: {tour.bestTime}
+                  {t("bestTime")}: {tour.bestTime}
                 </span>
               </div>
             )}
@@ -113,7 +116,8 @@ export default async function TourDetailPage({ params }: Props) {
             {/* Overview */}
             <section>
               <h2 className="text-4xl font-black text-slate-900 mb-10 tracking-tighter uppercase italic flex items-center gap-4">
-                <Info size={32} className="text-green-600" /> Package Overview
+                <Info size={32} className="text-green-600" />{" "}
+                {t("packageOverview")}
               </h2>
               <p className="text-slate-600 text-xl leading-relaxed font-medium">
                 {tour.longDescription}
@@ -123,7 +127,7 @@ export default async function TourDetailPage({ params }: Props) {
             {/* Highlights */}
             <section className="bg-slate-50 rounded-[40px] p-12 border border-slate-100">
               <h2 className="text-3xl font-black text-slate-900 mb-10 tracking-tighter uppercase italic">
-                Key Highlights
+                {t("keyHighlights")}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {tour.highlights.map((h, i) => (
@@ -142,7 +146,7 @@ export default async function TourDetailPage({ params }: Props) {
             {/* Itinerary */}
             <section>
               <h2 className="text-4xl font-black text-slate-900 mb-12 tracking-tighter uppercase italic">
-                Detailed Itinerary
+                {t("detailedItinerary")}
               </h2>
               <div className="space-y-8">
                 {tour.itinerary.map((item, i) => (
@@ -154,7 +158,7 @@ export default async function TourDetailPage({ params }: Props) {
                     <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-50 hover:shadow-xl transition-all duration-500 group">
                       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
                         <span className="px-4 py-1.5 bg-slate-900 text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-xl italic">
-                          Day {item.day}
+                          {t("day")} {item.day}
                         </span>
                         <div className="flex gap-2">
                           {item.meals?.map((meal) => (
@@ -177,7 +181,7 @@ export default async function TourDetailPage({ params }: Props) {
                         <div className="flex items-center gap-3 pt-6 border-t border-slate-100">
                           <MapPin size={16} className="text-green-600" />
                           <span className="text-xs font-black uppercase tracking-widest text-slate-400">
-                            Stay:{" "}
+                            {t("stay")}:{" "}
                             <span className="text-slate-900">
                               {item.accommodation}
                             </span>
@@ -195,7 +199,7 @@ export default async function TourDetailPage({ params }: Props) {
               <div className="p-12 bg-green-50 rounded-[40px] border border-green-100">
                 <h3 className="text-2xl font-black text-green-900 mb-8 tracking-tighter uppercase italic flex items-center gap-3">
                   <CheckCircle2 size={24} className="text-green-600" />{" "}
-                  Inclusions
+                  {t("inclusions")}
                 </h3>
                 <ul className="space-y-5">
                   {tour.inclusions.map((item, i) => (
@@ -210,7 +214,8 @@ export default async function TourDetailPage({ params }: Props) {
               </div>
               <div className="p-12 bg-slate-50 rounded-[40px] border border-slate-100">
                 <h3 className="text-2xl font-black text-slate-900 mb-8 tracking-tighter uppercase italic flex items-center gap-3">
-                  <XCircle size={24} className="text-slate-400" /> Exclusions
+                  <XCircle size={24} className="text-slate-400" />{" "}
+                  {t("exclusions")}
                 </h3>
                 <ul className="space-y-5">
                   {tour.exclusions.map((item, i) => (
@@ -235,13 +240,12 @@ export default async function TourDetailPage({ params }: Props) {
             />
             <div className="mt-8 p-8 bg-slate-50 rounded-3xl border border-slate-100">
               <h4 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-4 italic">
-                Cancellation Policy
+                {t("cancellationPolicy")}
               </h4>
-              <p className="text-[10px] font-bold text-slate-400 leading-relaxed tracking-tight">
-                * Cancellation before 30 days: 100% Refund <br />
-                * Cancellation 15-30 days: 50% Refund <br />* Cancellation less
-                than 15 days: No Refund
-              </p>
+              <p
+                className="text-[10px] font-bold text-slate-400 leading-relaxed tracking-tight"
+                dangerouslySetInnerHTML={{ __html: t("cancellationTerms") }}
+              />
             </div>
           </aside>
         </div>

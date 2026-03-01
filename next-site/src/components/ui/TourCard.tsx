@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { TourPackage } from "@/types/api.types";
-import { MapPin, Clock, ArrowRight, Star, CheckCircle2, Calendar } from "lucide-react";
+import { Clock, ArrowRight, Star, CheckCircle2, Calendar } from "lucide-react";
 
 interface Props {
   tour: TourPackage;
@@ -24,7 +24,7 @@ export default function TourCard({ tour }: Props) {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
-        
+
         {/* Duration Badge */}
         <div className="absolute top-5 left-5 px-4 py-2 bg-slate-900/90 backdrop-blur-md rounded-2xl text-[10px] font-black uppercase tracking-widest text-white shadow-xl flex items-center gap-2">
           <Clock size={12} className="text-green-400" />
@@ -35,7 +35,9 @@ export default function TourCard({ tour }: Props) {
         {tour.rating && (
           <div className="absolute top-5 right-5 px-3 py-1.5 bg-white/90 backdrop-blur-md rounded-xl shadow-lg flex items-center gap-1.5">
             <Star size={12} className="text-amber-500 fill-amber-500" />
-            <span className="text-xs font-black text-slate-900">{tour.rating}</span>
+            <span className="text-xs font-black text-slate-900">
+              {tour.rating}
+            </span>
           </div>
         )}
       </div>
@@ -45,7 +47,7 @@ export default function TourCard({ tour }: Props) {
         <h3 className="text-2xl font-black text-slate-900 group-hover:text-green-600 transition-colors line-clamp-1 tracking-tighter uppercase italic mb-2">
           {tour.title}
         </h3>
-        
+
         {tour.bestTime && (
           <div className="flex items-center gap-1.5 text-[10px] font-bold text-green-600 uppercase tracking-widest mb-4">
             <Calendar size={12} /> Best Time: {tour.bestTime}
@@ -56,7 +58,9 @@ export default function TourCard({ tour }: Props) {
         <div className="flex items-center gap-2 mb-6 overflow-hidden">
           {tour.routePath.map((stop, i) => (
             <div key={i} className="flex items-center gap-2 shrink-0">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-tight">{stop}</span>
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-tight">
+                {stop}
+              </span>
               {i < tour.routePath.length - 1 && (
                 <ArrowRight size={10} className="text-slate-300" />
               )}
@@ -67,24 +71,31 @@ export default function TourCard({ tour }: Props) {
         {/* Highlights Badges */}
         <div className="flex flex-wrap gap-2 mb-8">
           {tour.highlights.slice(0, 3).map((h, i) => (
-            <span key={i} className="px-3 py-1 bg-green-50 text-green-700 text-[9px] font-black uppercase tracking-widest rounded-lg flex items-center gap-1">
+            <span
+              key={i}
+              className="px-3 py-1 bg-green-50 text-green-700 text-[9px] font-black uppercase tracking-widest rounded-lg flex items-center gap-1"
+            >
               <CheckCircle2 size={10} /> {h}
             </span>
           ))}
         </div>
-        
+
         {/* Pricing and Action */}
         <div className="mt-auto pt-6 border-t border-slate-50 flex items-center justify-between">
           <div>
-            <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Starting Price</p>
+            <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">
+              Starting Price
+            </p>
             <div className="flex items-baseline gap-1">
               <span className="text-3xl font-black text-slate-900 leading-none tracking-tighter italic">
                 ₹{tour.price.toLocaleString("en-IN")}
               </span>
-              <span className="text-[10px] font-bold text-slate-400 uppercase">/ Person</span>
+              <span className="text-[10px] font-bold text-slate-400 uppercase">
+                / Person
+              </span>
             </div>
           </div>
-          
+
           <Link
             href={`/tours/${tour.slug}`}
             className="w-12 h-12 bg-slate-900 text-white rounded-2xl flex items-center justify-center hover:bg-green-600 transition-all shadow-lg hover:-translate-y-1"

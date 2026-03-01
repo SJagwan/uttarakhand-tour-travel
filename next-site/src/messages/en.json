@@ -55,7 +55,8 @@
           "Bhairav Nath Temple",
           "Vasuki Tal",
           "Trekking & Heli Tours"
-        ]
+        ],
+        "slug": "kedarnath"
       },
       {
         "name": "Badrinath",
@@ -69,7 +70,8 @@
           "Mana Village",
           "Tapt Kund",
           "Neelkanth Peak"
-        ]
+        ],
+        "slug": "badrinath"
       },
       {
         "name": "Mussoorie",
@@ -83,7 +85,8 @@
           "Gun Hill",
           "Mall Road",
           "Camel's Back Road"
-        ]
+        ],
+        "slug": "mussoorie"
       },
       {
         "name": "Nainital",
@@ -97,7 +100,8 @@
           "Naina Devi Temple",
           "Snow View Point",
           "Tiffin Top"
-        ]
+        ],
+        "slug": "nainital"
       },
       {
         "name": "Rishikesh",
@@ -111,7 +115,8 @@
           "Laxman Jhula",
           "Beatles Ashram",
           "White Water Rafting"
-        ]
+        ],
+        "slug": "rishikesh"
       },
       {
         "name": "Haridwar",
@@ -125,7 +130,8 @@
           "Mansa Devi Temple",
           "Chandi Devi Temple",
           "Shantikunj"
-        ]
+        ],
+        "slug": "haridwar"
       },
       {
         "name": "Auli",
@@ -139,7 +145,8 @@
           "Joshimath",
           "Gurso Bugyal",
           "Skiing & Ropeway Ride"
-        ]
+        ],
+        "slug": "auli"
       },
       {
         "name": "Jim Corbett",
@@ -153,7 +160,8 @@
           "Garjiya Devi Temple",
           "Corbett Falls",
           "Sitabani Wildlife Reserve"
-        ]
+        ],
+        "slug": "jim-corbett"
       },
       {
         "name": "Gangotri",
@@ -167,7 +175,8 @@
           "Surya Kund",
           "Bhagirath Shila",
           "Pandava Gufa"
-        ]
+        ],
+        "slug": "gangotri"
       },
       {
         "name": "Yamunotri",
@@ -181,7 +190,8 @@
           "Surya Kund",
           "Divya Shila",
           "Janki Chatti"
-        ]
+        ],
+        "slug": "yamunotri"
       },
       {
         "name": "Chopta",
@@ -195,7 +205,8 @@
           "Chandrashila Trek",
           "Deoria Tal",
           "Ukhimath"
-        ]
+        ],
+        "slug": "chopta"
       },
       {
         "name": "Valley of Flowers",
@@ -209,7 +220,8 @@
           "Hemkund Sahib",
           "Ghangaria",
           "Pushpawati River"
-        ]
+        ],
+        "slug": "valley-of-flowers"
       }
     ],
     "yatra": [
@@ -227,7 +239,8 @@
           "1N Kedarnath, 1N Badrinath, 1N Rudraprayag"
         ],
         "img": "/destinations/chardham.jpg",
-        "bestTime": "May to June, and September to October"
+        "bestTime": "May to June, and September to October",
+        "slug": "char-dham-yatra-tour"
       },
       {
         "name": "Do Dham Yatra",
@@ -243,7 +256,8 @@
           "2N Pipalkoti"
         ],
         "img": "/destinations/dodham.jpg",
-        "bestTime": "May to June, and September to October"
+        "bestTime": "May to June, and September to October",
+        "slug": "do-dham-yatra-tour"
       },
       {
         "name": "Teen Dham Yatra",
@@ -259,7 +273,8 @@
           "3 Sacred Shrines"
         ],
         "img": "/destinations/teendham.jpg",
-        "bestTime": "May to June, and September to October"
+        "bestTime": "May to June, and September to October",
+        "slug": "teen-dham-yatra-tour"
       },
       {
         "name": "Nainital & Jim Corbett Safari",
@@ -275,7 +290,8 @@
           "MAP Plan Included"
         ],
         "img": "/destinations/nainital.jpg",
-        "bestTime": "October to June (for Safari)"
+        "bestTime": "October to June (for Safari)",
+        "slug": "nainital-jim-corbett-safari-tour"
       },
       {
         "name": "Auli Chopta Snow Tour",
@@ -291,7 +307,8 @@
           "Complimentary Bonfire & MAP Plan"
         ],
         "img": "/destinations/auli.jpg",
-        "bestTime": "December to March (for Snow), April to June"
+        "bestTime": "December to March (for Snow), April to June",
+        "slug": "auli-chopta-snow-tour"
       }
     ],
     "modal": {

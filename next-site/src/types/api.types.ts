@@ -46,6 +46,7 @@ export interface TourPackage {
   rating?: number;
   reviewCount?: number;
   tags: string[];
+  bestTime?: string;
 }
 
 /**

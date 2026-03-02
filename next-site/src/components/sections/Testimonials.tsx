@@ -57,7 +57,7 @@ export default async function Testimonials({ locale }: { locale: string }) {
                 </div>
               </div>
               <p className="text-lg font-bold leading-relaxed mb-8 italic tracking-tight">
-                "{t.text}"
+                &quot;{t.text}&quot;
               </p>
               <div className="pt-6 border-t border-slate-200 group-hover:border-slate-800 transition-colors duration-500">
                 <h4 className="text-xl font-black uppercase tracking-tighter italic leading-none mb-1">

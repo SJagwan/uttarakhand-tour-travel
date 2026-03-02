@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useState, useEffect } from "react";
 import { submitBooking, BookingState } from "@/app/actions/booking";
 import { Phone, Users, Calendar, Send, Loader2, CheckCircle, AlertTriangle, MapPin, FileText, User } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -13,12 +13,16 @@ interface Props {
 
 const initialState: BookingState = {};
 
-export default function BookingWidget({ tourId, tourTitle, basePrice }: Props) {
+export default function BookingWidget({ tourTitle }: Props) {
   const [state, formAction, isPending] = useActionState(submitBooking, initialState);
-  const [travelers, setTravelers] = useState(1);
+  const [travelers, setTravelers] = useState<number | "">(1);
   const t = useTranslations("booking");
+  const [minDate, setMinDate] = useState("");
 
-  const totalPrice = basePrice * travelers;
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMinDate(new Date(Date.now() + 86400000).toISOString().split("T")[0]);
+  }, []);
 
   if (state.success) {
     return (
@@ -123,7 +127,7 @@ export default function BookingWidget({ tourId, tourTitle, basePrice }: Props) {
               max="25"
               placeholder={t("passengersPlaceholder")}
               value={travelers}
-              onChange={(e) => setTravelers(e.target.value ? Number(e.target.value) : ("" as any))}
+              onChange={(e) => setTravelers(e.target.value ? Number(e.target.value) : "")}
               required
               className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-green-500 outline-none transition font-medium text-slate-900"
             />
@@ -138,7 +142,7 @@ export default function BookingWidget({ tourId, tourTitle, basePrice }: Props) {
             <input
               name="date"
               type="date"
-              min={new Date(Date.now() + 86400000).toISOString().split("T")[0]}
+              min={minDate || undefined}
               required
               className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-green-500 outline-none transition font-medium text-slate-900 uppercase text-xs"
             />

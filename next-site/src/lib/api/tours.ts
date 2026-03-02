@@ -415,13 +415,43 @@ const getYatraItinerary = (name: string, locale: string): ItineraryDay[] => {
   return getDefaultItinerary(name);
 };
 
+interface YatraRaw {
+  name: string;
+  slug?: string;
+  tagline: string;
+  description: string;
+  price: string;
+  duration: string;
+  route: string;
+  highlights: string[];
+  img: string;
+  bestTime: string;
+}
+
+interface PlaceRaw {
+  name: string;
+  slug?: string;
+  tagline: string;
+  description: string;
+  img: string;
+  bestTime: string;
+  altitude: string;
+  topSpots: string[];
+}
+
+interface MessagesType {
+  destinations: {
+    places: PlaceRaw[];
+    yatra?: YatraRaw[];
+  };
+}
+
 export async function getAllTours(locale: string): Promise<TourPackage[]> {
-  const messages = (await getMessages({ locale })) as any;
-  const places = messages.destinations.places;
+  const messages = (await getMessages({ locale })) as unknown as MessagesType;
   const yatras = messages.destinations.yatra || [];
 
   // Map specialized Yatra packages FIRST
-  const yatraTours = yatras.map((y: any) => {
+  const yatraTours = yatras.map((y: YatraRaw) => {
     const days = parseInt(y.duration.split(" ")[0]);
     const nights = parseInt(y.duration.split("/")[1].trim().split(" ")[0]);
 
@@ -495,8 +525,8 @@ export async function getAllTourSlugs(): Promise<string[]> {
 
 // Destination Fetchers (Kept separate for Entity SEO)
 export async function getAllDestinations(locale: string) {
-  const messages = (await getMessages({ locale })) as any;
-  return messages.destinations.places.map((p: any) => ({
+  const messages = (await getMessages({ locale })) as unknown as MessagesType;
+  return messages.destinations.places.map((p: PlaceRaw) => ({
     id: p.name,
     slug: p.slug || generateDestSlug(p.name),
     name: p.name,
@@ -511,10 +541,10 @@ export async function getAllDestinations(locale: string) {
 
 export async function getDestinationBySlug(slug: string, locale: string) {
   const dests = await getAllDestinations(locale);
-  return dests.find((d: any) => d.slug === slug) || null;
+  return dests.find((d: { slug: string }) => d.slug === slug) || null;
 }
 
 export async function getAllDestSlugs(): Promise<string[]> {
   const dests = await getAllDestinations("en");
-  return dests.map((d: any) => d.slug);
+  return dests.map((d: { slug: string }) => d.slug);
 }

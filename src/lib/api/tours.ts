@@ -462,7 +462,7 @@ export async function getAllTours(locale: string): Promise<TourPackage[]> {
       shortDescription: y.tagline,
       longDescription: y.description,
       price: parseInt(y.price),
-      currency: "INR",
+      currency: "INR" as const,
       durationDays: days,
       durationNights: nights,
       itinerary: getYatraItinerary(y.name, locale),
@@ -482,17 +482,17 @@ export async function getAllTours(locale: string): Promise<TourPackage[]> {
       highlights: y.highlights,
       gallery: [
         {
-          type: "vehicle",
+          type: "vehicle" as const,
           url: "/uttarakhand-hero.jpg",
           alt: "Our Premium Tempo Traveller",
         },
         {
-          type: "hotel",
+          type: "hotel" as const,
           url: "/destinations/kedarnath.jpg",
           alt: "Luxury Stay near Temple",
         },
         {
-          type: "location",
+          type: "location" as const,
           url: "/destinations/badrinath.jpg",
           alt: "Scenic View from Badrinath",
         },

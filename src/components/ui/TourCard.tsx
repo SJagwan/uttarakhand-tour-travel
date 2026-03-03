@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { TourPackage } from "@/types/api.types";
-import { Clock, ArrowRight, Star, CheckCircle2, Calendar } from "lucide-react";
+import { Clock, ArrowRight, Star, CheckCircle2, Calendar, CarFront } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 
 interface Props {
@@ -19,9 +19,9 @@ export default function TourCard({ tour }: Props) {
   const locale = useLocale();
 
   return (
-    <div className="group bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 flex flex-col h-full">
+    <div className="group bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 flex flex-col h-full relative">
       {/* Image Container with Duration Overlay */}
-      <div className="relative aspect-[16/10] overflow-hidden">
+      <div className="relative aspect-[16/10] overflow-hidden shrink-0">
         <Image
           src={tour.mainImage.url}
           alt={tour.mainImage.alt}
@@ -75,7 +75,7 @@ export default function TourCard({ tour }: Props) {
         </div>
 
         {/* Highlights Badges */}
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-2 mb-6">
           {tour.highlights.slice(0, 3).map((h, i) => (
             <span
               key={i}
@@ -86,18 +86,36 @@ export default function TourCard({ tour }: Props) {
           ))}
         </div>
 
+        {/* Vehicle Only Price Banner */}
+        <div className="mt-auto mb-6 bg-slate-50 border border-slate-100 rounded-2xl p-3 flex flex-col gap-2">
+          <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500">
+            <CarFront size={14} className="text-green-600" />
+            {locale === "hi" ? "केवल वाहन" : "Vehicle Only"}
+          </div>
+          <div className="flex items-center justify-between text-xs font-bold text-slate-700">
+            <span className="text-[10px]">13-Seater Tempo Traveller: <span className="font-black text-slate-900">₹8,000</span></span>
+            <span className="text-slate-300">|</span>
+            <span className="text-[10px]">6-Seater SUV: <span className="font-black text-slate-900">₹6,000</span></span>
+          </div>
+        </div>
+
         {/* Pricing and Action */}
-        <div className="mt-auto pt-6 border-t border-slate-50 flex items-center justify-between">
+        <div className="pt-6 border-t border-slate-50 flex items-center justify-between">
           <div>
             <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">
-              {locale === "hi" ? "शुरुआती कीमत" : "Starting Price"}
+              {locale === "hi" ? "संपूर्ण पैकेज" : "Full Package"}
             </p>
-            <div className="flex items-baseline gap-1">
-              <span className="text-3xl font-black text-slate-900 leading-none tracking-tighter italic">
-                ₹{tour.price.toLocaleString("en-IN")}
-              </span>
-              <span className="text-[10px] font-bold text-slate-400 uppercase">
-                / {t("day")}
+            <div className="flex flex-col">
+              <div className="flex items-baseline gap-1">
+                <span className="text-3xl font-black text-slate-900 leading-none tracking-tighter italic">
+                  ₹{tour.price.toLocaleString("en-IN")}
+                </span>
+                <span className="text-[10px] font-bold text-slate-400 uppercase">
+                  / {locale === "hi" ? "व्यक्ति" : "person"}
+                </span>
+              </div>
+              <span className="text-[9px] font-bold text-slate-400 mt-1">
+                + GST
               </span>
             </div>
           </div>
@@ -105,7 +123,7 @@ export default function TourCard({ tour }: Props) {
           <Link
             href={`/tours/${tour.slug}`}
             locale={locale as any}
-            className="w-12 h-12 bg-slate-900 text-white rounded-2xl flex items-center justify-center hover:bg-green-600 transition-all shadow-lg hover:-translate-y-1"
+            className="w-12 h-12 bg-slate-900 text-white rounded-2xl flex items-center justify-center hover:bg-green-600 transition-all shadow-lg hover:-translate-y-1 shrink-0"
           >
             <ArrowRight size={20} />
           </Link>

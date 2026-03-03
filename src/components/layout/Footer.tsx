@@ -3,9 +3,6 @@ import {
   Phone,
   Mail,
   MapPin,
-  Instagram,
-  Facebook,
-  Youtube,
 } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
@@ -30,26 +27,6 @@ export default async function Footer({ locale }: { locale: string }) {
           <p className="text-slate-400 text-sm font-medium leading-relaxed max-w-xs">
             {t("about")}
           </p>
-          <div className="flex gap-4">
-            <a
-              href="#"
-              className="p-3 bg-slate-800 rounded-2xl hover:bg-green-600 transition-colors"
-            >
-              <Instagram size={18} className="text-white" />
-            </a>
-            <a
-              href="#"
-              className="p-3 bg-slate-800 rounded-2xl hover:bg-green-600 transition-colors"
-            >
-              <Facebook size={18} className="text-white" />
-            </a>
-            <a
-              href="#"
-              className="p-3 bg-slate-800 rounded-2xl hover:bg-green-600 transition-colors"
-            >
-              <Youtube size={18} className="text-white" />
-            </a>
-          </div>
         </div>
 
         {/* QUICK LINKS */}

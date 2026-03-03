@@ -15,6 +15,8 @@ import {
   Info,
   ChevronDown,
   Calendar,
+  CarFront,
+  Briefcase,
 } from "lucide-react";
 
 interface Props {
@@ -110,32 +112,101 @@ export default async function TourDetailPage({ params }: Props) {
       </header>
 
       {/* Main Content Layout */}
-      <div className="container mx-auto px-4 py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-20 items-start">
-          <div className="lg:col-span-2 space-y-24">
+      <div className="container mx-auto px-4 py-16 md:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-20 items-start">
+          <div className="lg:col-span-2 space-y-16 lg:space-y-24">
+            
+            {/* Pricing Summary Card */}
+            <section className="bg-slate-50 border border-slate-100 rounded-[24px] p-6 md:p-8 shadow-sm relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-green-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+              
+              <h2 className="text-xl font-black text-slate-900 mb-6 tracking-tighter uppercase italic flex items-center gap-3">
+                {locale === "hi" ? "मूल्य निर्धारण विकल्प" : "Pricing Options"}
+              </h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 relative z-10">
+                {/* Full Package Box */}
+                <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm flex flex-col justify-between">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center">
+                      <Briefcase size={16} className="text-green-600" />
+                    </div>
+                    <span className="text-xs font-black uppercase tracking-widest text-slate-700">
+                      {locale === "hi" ? "संपूर्ण पैकेज" : "Full Package"}
+                    </span>
+                  </div>
+                  <div>
+                    <div className="text-[10px] font-bold text-slate-400 uppercase mb-1 leading-tight">
+                      {locale === "hi" ? "प्रति व्यक्ति (होटल + भोजन सहित)" : "Per Person (Hotel + Meals included)"}
+                    </div>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-2xl font-black text-slate-900 tracking-tighter italic">
+                        ₹{tour.price.toLocaleString("en-IN")}
+                      </span>
+                      <span className="text-[9px] font-bold text-slate-400">
+                        + GST
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Vehicle Only Box */}
+                <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm flex flex-col justify-between">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center">
+                      <CarFront size={16} className="text-blue-600" />
+                    </div>
+                    <span className="text-xs font-black uppercase tracking-widest text-slate-700">
+                      {locale === "hi" ? "केवल वाहन" : "Vehicle Only"}
+                    </span>
+                  </div>
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-[10px] font-bold text-slate-400 uppercase leading-tight">
+                        {locale === "hi" ? "प्रति व्यक्ति" : "Per Person"}
+                      </span>
+                      <span className="text-[8px] font-bold text-slate-400 bg-slate-50 px-2 py-0.5 rounded">
+                        + GST
+                      </span>
+                    </div>
+                    <div className="flex flex-col gap-1.5">
+                      <div className="flex justify-between items-center bg-slate-50 px-3 py-1.5 rounded-md">
+                        <span className="text-[11px] font-bold text-slate-600">13-Seater Tempo Traveller</span>
+                        <span className="text-xs font-black text-slate-900">₹8,000</span>
+                      </div>
+                      <div className="flex justify-between items-center bg-slate-50 px-3 py-1.5 rounded-md">
+                        <span className="text-[11px] font-bold text-slate-600">6-Seater SUV</span>
+                        <span className="text-xs font-black text-slate-900">₹6,000</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* Overview */}
             <section>
-              <h2 className="text-4xl font-black text-slate-900 mb-10 tracking-tighter uppercase italic flex items-center gap-4">
-                <Info size={32} className="text-green-600" />{" "}
+              <h2 className="text-3xl lg:text-4xl font-black text-slate-900 mb-8 lg:mb-10 tracking-tighter uppercase italic flex items-center gap-4">
+                <Info size={28} className="text-green-600" />{" "}
                 {t("packageOverview")}
               </h2>
-              <p className="text-slate-600 text-xl leading-relaxed font-medium">
+              <p className="text-slate-600 text-lg lg:text-xl leading-relaxed font-medium">
                 {tour.longDescription}
               </p>
             </section>
 
             {/* Highlights */}
-            <section className="bg-slate-50 rounded-[40px] p-12 border border-slate-100">
-              <h2 className="text-3xl font-black text-slate-900 mb-10 tracking-tighter uppercase italic">
+            <section className="bg-slate-50 rounded-[32px] lg:rounded-[40px] p-8 lg:p-12 border border-slate-100">
+              <h2 className="text-2xl lg:text-3xl font-black text-slate-900 mb-8 lg:mb-10 tracking-tighter uppercase italic">
                 {t("keyHighlights")}
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                 {tour.highlights.map((h, i) => (
                   <div key={i} className="flex gap-4 items-start group">
                     <div className="w-10 h-10 bg-white rounded-2xl flex items-center justify-center shadow-sm text-green-600 shrink-0 group-hover:bg-green-600 group-hover:text-white transition-colors duration-500">
                       <CheckCircle2 size={20} />
                     </div>
-                    <span className="text-lg font-bold text-slate-700 tracking-tight">
+                    <span className="text-base lg:text-lg font-bold text-slate-700 tracking-tight">
                       {h}
                     </span>
                   </div>
@@ -145,22 +216,22 @@ export default async function TourDetailPage({ params }: Props) {
 
             {/* Itinerary */}
             <section>
-              <h2 className="text-4xl font-black text-slate-900 mb-12 tracking-tighter uppercase italic">
+              <h2 className="text-3xl lg:text-4xl font-black text-slate-900 mb-10 lg:mb-12 tracking-tighter uppercase italic">
                 {t("detailedItinerary")}
               </h2>
-              <div className="space-y-8">
+              <div className="space-y-6 lg:space-y-8">
                 {tour.itinerary.map((item, i) => (
                   <div
                     key={i}
-                    className="relative pl-12 border-l-4 border-slate-100 pb-12 last:pb-0"
+                    className="relative pl-10 lg:pl-12 border-l-4 border-slate-100 pb-10 lg:pb-12 last:pb-0"
                   >
                     <div className="absolute -left-[14px] top-0 w-6 h-6 bg-green-600 rounded-full border-4 border-white shadow-lg ring-1 ring-green-600/20" />
-                    <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-50 hover:shadow-xl transition-all duration-500 group">
+                    <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-sm border border-slate-50 hover:shadow-xl transition-all duration-500 group">
                       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
                         <span className="px-4 py-1.5 bg-slate-900 text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-xl italic">
                           {t("day")} {item.day}
                         </span>
-                        <div className="flex gap-2">
+                        <div className="flex flex-wrap gap-2">
                           {item.meals?.map((meal) => (
                             <span
                               key={meal}
@@ -171,10 +242,10 @@ export default async function TourDetailPage({ params }: Props) {
                           ))}
                         </div>
                       </div>
-                      <h3 className="text-2xl font-black text-slate-900 mb-4 tracking-tight uppercase italic group-hover:text-green-600 transition-colors">
+                      <h3 className="text-xl lg:text-2xl font-black text-slate-900 mb-4 tracking-tight uppercase italic group-hover:text-green-600 transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-slate-500 font-medium leading-relaxed mb-6 italic">
+                      <p className="text-slate-500 font-medium leading-relaxed mb-6 italic text-sm lg:text-base">
                         {item.description}
                       </p>
                       {item.accommodation && (
@@ -195,33 +266,33 @@ export default async function TourDetailPage({ params }: Props) {
             </section>
 
             {/* Inclusions / Exclusions */}
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div className="p-12 bg-green-50 rounded-[40px] border border-green-100">
-                <h3 className="text-2xl font-black text-green-900 mb-8 tracking-tighter uppercase italic flex items-center gap-3">
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+              <div className="p-8 lg:p-12 bg-green-50 rounded-[32px] lg:rounded-[40px] border border-green-100">
+                <h3 className="text-xl lg:text-2xl font-black text-green-900 mb-6 lg:mb-8 tracking-tighter uppercase italic flex items-center gap-3">
                   <CheckCircle2 size={24} className="text-green-600" />{" "}
                   {t("inclusions")}
                 </h3>
-                <ul className="space-y-5">
+                <ul className="space-y-4 lg:space-y-5">
                   {tour.inclusions.map((item, i) => (
                     <li
                       key={i}
-                      className="flex gap-3 text-sm font-bold text-green-800 tracking-tight leading-none italic"
+                      className="flex gap-3 text-xs lg:text-sm font-bold text-green-800 tracking-tight leading-none italic"
                     >
                       <span className="text-green-600 italic">✓</span> {item}
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="p-12 bg-slate-50 rounded-[40px] border border-slate-100">
-                <h3 className="text-2xl font-black text-slate-900 mb-8 tracking-tighter uppercase italic flex items-center gap-3">
+              <div className="p-8 lg:p-12 bg-slate-50 rounded-[32px] lg:rounded-[40px] border border-slate-100">
+                <h3 className="text-xl lg:text-2xl font-black text-slate-900 mb-6 lg:mb-8 tracking-tighter uppercase italic flex items-center gap-3">
                   <XCircle size={24} className="text-slate-400" />{" "}
                   {t("exclusions")}
                 </h3>
-                <ul className="space-y-5">
+                <ul className="space-y-4 lg:space-y-5">
                   {tour.exclusions.map((item, i) => (
                     <li
                       key={i}
-                      className="flex gap-3 text-sm font-bold text-slate-400 tracking-tight leading-none italic"
+                      className="flex gap-3 text-xs lg:text-sm font-bold text-slate-400 tracking-tight leading-none italic"
                     >
                       <span className="text-red-400">✗</span> {item}
                     </li>
@@ -238,7 +309,7 @@ export default async function TourDetailPage({ params }: Props) {
               tourTitle={tour.title}
               basePrice={tour.price}
             />
-            <div className="mt-8 p-8 bg-slate-50 rounded-3xl border border-slate-100">
+            <div className="mt-8 p-6 lg:p-8 bg-slate-50 rounded-3xl border border-slate-100">
               <h4 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-4 italic">
                 {t("cancellationPolicy")}
               </h4>

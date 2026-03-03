@@ -5,7 +5,7 @@ import { MetadataRoute } from 'next';
  * This automatically lists every English and Hindi tour.
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://uttarakhandtourandtravels.co.in';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.jagwantourandtravels.com';
 
   // In a real project, fetch all slugs from the backend
   // const tours = await getTourSlugs(); 

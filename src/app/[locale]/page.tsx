@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const h = await getTranslations({ locale, namespace: 'hero' });
   
   return {
-    title: t('logo'),
+    title: `${t('logo')} | Best Tour and Travels in Uttarakhand`,
     description: h('subheading'),
   };
 }

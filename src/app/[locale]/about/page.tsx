@@ -45,7 +45,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             <div className="aspect-square bg-slate-100 rounded-[40px] md:rounded-[60px] overflow-hidden shadow-2xl relative z-10">
               <Image
                 src="/uttarakhand-hero.jpg"
-                alt="Uttarakhand Tour & Travels"
+                alt="Jagwan Tour & Travels"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover grayscale hover:grayscale-0 transition-all duration-1000"

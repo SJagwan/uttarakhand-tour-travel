@@ -8,8 +8,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Uttarakhand Tour & Travels",
-    default: "Uttarakhand Tour & Travels",
+    template: "%s | Jagwan Tour & Travels",
+    default: "Jagwan Tour & Travels",
   },
   description: "Book premium Uttarakhand tour packages with local experts.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://uttarakhandtourandtravels.co.in"),

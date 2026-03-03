@@ -7,7 +7,7 @@ export const generateLocalBusinessSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
-    "name": "Uttarakhand Tour & Travels",
+    "name": "Jagwan Tour & Travels",
     "image": `${process.env.NEXT_PUBLIC_SITE_URL}/logo.png`,
     "@id": `${process.env.NEXT_PUBLIC_SITE_URL}/#organization`,
     "url": process.env.NEXT_PUBLIC_SITE_URL,
@@ -35,7 +35,7 @@ export const generateTourSchema = (tour: TourPackage) => {
     "tourType": ["Pilgrimage", "Nature"],
     "provider": {
       "@type": "TravelAgency",
-      "name": "Uttarakhand Tour & Travels"
+      "name": "Jagwan Tour & Travels"
     },
     "offers": {
       "@type": "Offer",

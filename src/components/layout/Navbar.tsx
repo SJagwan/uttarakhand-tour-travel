@@ -32,6 +32,9 @@ export default function Navbar({ locale }: { locale: string }) {
           <Link href="/destinations" locale={locale as any} className={`text-xs font-black uppercase tracking-widest transition-colors ${isActive('/destinations') ? 'text-green-600' : 'text-slate-600 hover:text-green-600'}`}>
             {t('links.destinations')}
           </Link>
+          <Link href="/experience" locale={locale as any} className={`text-xs font-black uppercase tracking-widest transition-colors ${isActive('/experience') ? 'text-green-600' : 'text-slate-600 hover:text-green-600'}`}>
+            {locale === 'hi' ? 'अनुभव' : 'Experience'}
+          </Link>
           <Link href="/about" locale={locale as any} className={`text-xs font-black uppercase tracking-widest transition-colors ${isActive('/about') ? 'text-green-600' : 'text-slate-600 hover:text-green-600'}`}>
             {t('links.about')}
           </Link>

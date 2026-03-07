@@ -7,13 +7,11 @@ import BookingWidget from "@/components/sections/BookingWidget";
 import { getTranslations } from "next-intl/server";
 
 import {
-  Clock,
   Star,
   MapPin,
   CheckCircle2,
   XCircle,
   Info,
-  ChevronDown,
   Calendar,
   CarFront,
   Briefcase,
@@ -115,11 +113,10 @@ export default async function TourDetailPage({ params }: Props) {
       <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-20 items-start">
           <div className="lg:col-span-2 space-y-16 lg:space-y-24">
-            
             {/* Pricing Summary Card */}
             <section className="bg-slate-50 border border-slate-100 rounded-[24px] p-6 md:p-8 shadow-sm relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-green-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-              
+
               <h2 className="text-xl font-black text-slate-900 mb-6 tracking-tighter uppercase italic flex items-center gap-3">
                 {locale === "hi" ? "मूल्य निर्धारण विकल्प" : "Pricing Options"}
               </h2>
@@ -137,7 +134,9 @@ export default async function TourDetailPage({ params }: Props) {
                   </div>
                   <div>
                     <div className="text-[10px] font-bold text-slate-400 uppercase mb-1 leading-tight">
-                      {locale === "hi" ? "प्रति व्यक्ति (होटल + भोजन सहित)" : "Per Person (Hotel + Meals included)"}
+                      {locale === "hi"
+                        ? "प्रति व्यक्ति (होटल + भोजन सहित)"
+                        : "Per Person (Hotel + Meals included)"}
                     </div>
                     <div className="flex items-baseline gap-1">
                       <span className="text-2xl font-black text-slate-900 tracking-tighter italic">
@@ -171,12 +170,20 @@ export default async function TourDetailPage({ params }: Props) {
                     </div>
                     <div className="flex flex-col gap-1.5">
                       <div className="flex justify-between items-center bg-slate-50 px-3 py-1.5 rounded-md">
-                        <span className="text-[11px] font-bold text-slate-600">13-Seater Tempo Traveller</span>
-                        <span className="text-xs font-black text-slate-900">₹8,000</span>
+                        <span className="text-[11px] font-bold text-slate-600">
+                          13-Seater Tempo Traveller
+                        </span>
+                        <span className="text-xs font-black text-slate-900">
+                          ₹8,000
+                        </span>
                       </div>
                       <div className="flex justify-between items-center bg-slate-50 px-3 py-1.5 rounded-md">
-                        <span className="text-[11px] font-bold text-slate-600">6-Seater SUV</span>
-                        <span className="text-xs font-black text-slate-900">₹6,000</span>
+                        <span className="text-[11px] font-bold text-slate-600">
+                          6-Seater SUV
+                        </span>
+                        <span className="text-xs font-black text-slate-900">
+                          ₹6,000
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -248,6 +255,7 @@ export default async function TourDetailPage({ params }: Props) {
                       <p className="text-slate-500 font-medium leading-relaxed mb-6 italic text-sm lg:text-base">
                         {item.description}
                       </p>
+
                       {item.accommodation && (
                         <div className="flex items-center gap-3 pt-6 border-t border-slate-100">
                           <MapPin size={16} className="text-green-600" />

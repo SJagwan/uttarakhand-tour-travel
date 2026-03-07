@@ -5,6 +5,7 @@ import { getTourBySlug, getAllTourSlugs } from "@/lib/api/tours";
 import { generateTourSchema } from "@/lib/seo/schema";
 import BookingWidget from "@/components/sections/BookingWidget";
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/routing";
 
 import {
   Star,
@@ -15,6 +16,7 @@ import {
   Calendar,
   CarFront,
   Briefcase,
+  Play,
 } from "lucide-react";
 
 interface Props {
@@ -97,14 +99,26 @@ export default async function TourDetailPage({ params }: Props) {
                 ))}
               </div>
             </div>
-            {tour.bestTime && (
-              <div className="flex items-center gap-3 mt-4 text-green-400">
-                <Calendar size={18} />
-                <span className="text-xs font-bold uppercase tracking-widest">
-                  {t("bestTime")}: {tour.bestTime}
+            <div className="flex flex-wrap items-center gap-4 mt-6">
+              {tour.bestTime && (
+                <div className="flex items-center gap-3 text-green-400">
+                  <Calendar size={18} />
+                  <span className="text-xs font-bold uppercase tracking-widest">
+                    {t("bestTime")}: {tour.bestTime}
+                  </span>
+                </div>
+              )}
+              <Link
+                href="/experience"
+                locale={locale as any}
+                className="flex items-center gap-2 bg-white/10 hover:bg-white/20 transition-colors backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 text-white group"
+              >
+                <Play size={16} className="text-green-400 fill-green-400 group-hover:scale-110 transition-transform" />
+                <span className="text-[10px] font-black uppercase tracking-widest">
+                  {locale === 'hi' ? 'यात्रा अनुभव देखें' : 'Watch Experience'}
                 </span>
-              </div>
-            )}
+              </Link>
+            </div>
           </div>
         </div>
       </header>

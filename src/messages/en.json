@@ -61,7 +61,8 @@
       "destinations": "Destinations",
       "booking": "Enquire",
       "contact": "Contact",
-      "about": "About"
+      "about": "About",
+      "experience": "Experience"
     }
   },
   "destinations": {
@@ -535,5 +536,18 @@
   "tourGallery": {
     "heading": "Tour Gallery",
     "subheading": "* Real photos from our recent trips"
+  },
+  "experience": {
+    "title": "Journey Experience",
+    "subtitle": "Live Highlights",
+    "description": "Watch real-time journey highlights and cinematic road trips across Uttarakhand.",
+    "heroBadge": "Cinematic Uttarakhand",
+    "heroTitle": "Experience",
+    "heroTitleHighlight": "The Journey",
+    "heroSubtitle": "Witness the raw beauty of the Himalayas through real footage recorded on the road. From misty valleys to snow-capped peaks.",
+    "noVideos": "No journey videos found yet",
+    "checkBack": "Check back soon for live updates from the road.",
+    "ctaTitle": "Create Your Own Experience",
+    "ctaSubtitle": "The beauty of Devbhoomi is waiting for you. Book your tour today and start your journey."
   }
 }

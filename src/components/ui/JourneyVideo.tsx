@@ -11,7 +11,11 @@ interface JourneyVideoProps {
   title: string;
 }
 
-export default function JourneyVideo({ videoUrl, thumbnail, title }: JourneyVideoProps) {
+export default function JourneyVideo({
+  videoUrl,
+  thumbnail,
+  title,
+}: JourneyVideoProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -31,6 +35,7 @@ export default function JourneyVideo({ videoUrl, thumbnail, title }: JourneyVide
         </span>
         <button
           onClick={toggleModal}
+          aria-label={`Watch ${title}`}
           className="relative group w-full aspect-video rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm cursor-pointer"
         >
           <Image
@@ -46,9 +51,9 @@ export default function JourneyVideo({ videoUrl, thumbnail, title }: JourneyVide
             </div>
           </div>
           <div className="absolute bottom-3 right-3 flex items-center gap-2">
-              <span className="text-[9px] font-black uppercase tracking-widest text-white bg-black/40 backdrop-blur-md px-2 py-1 rounded-lg">
-                  Watch Journey
-              </span>
+            <span className="text-[9px] font-black uppercase tracking-widest text-white bg-black/40 backdrop-blur-md px-2 py-1 rounded-lg">
+              Watch Journey
+            </span>
           </div>
         </button>
       </div>
@@ -85,12 +90,14 @@ export default function JourneyVideo({ videoUrl, thumbnail, title }: JourneyVide
                 <div className="flex justify-between items-center pointer-events-auto">
                   <button
                     onClick={toggleModal}
+                    aria-label="Close video"
                     className="w-10 h-10 md:w-12 md:h-12 bg-black/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/10 hover:bg-black/40"
                   >
                     <X size={20} />
                   </button>
                   <button
                     onClick={toggleMute}
+                    aria-label={isMuted ? "Unmute video" : "Mute video"}
                     className="w-10 h-10 md:w-12 md:h-12 bg-black/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/10 hover:bg-black/40"
                   >
                     {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}

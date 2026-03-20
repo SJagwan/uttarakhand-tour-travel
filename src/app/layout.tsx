@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export const viewport: Viewport = {
   themeColor: "#16a34a",
@@ -11,7 +12,8 @@ export const metadata: Metadata = {
     template: "%s | Jagwan Tour & Travels",
     default: "Jagwan Tour & Travels | Best Tour and Travels in Uttarakhand",
   },
-  description: "Jagwan Tour & Travels offers premium Uttarakhand tour packages, Char Dham Yatra, vehicle rentals, and custom itineraries. Your trusted local travel agency.",
+  description:
+    "Jagwan Tour & Travels offers premium Uttarakhand tour packages, Char Dham Yatra, vehicle rentals, and custom itineraries. Your trusted local travel agency.",
   keywords: [
     "Jagwan Tour & Travels",
     "Jagwan tour and travel",
@@ -25,17 +27,20 @@ export const metadata: Metadata = {
   authors: [{ name: "Birbal Singh Jagwan" }],
   creator: "Jagwan Tour & Travels",
   publisher: "Jagwan Tour & Travels",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.jagwantourandtravels.com"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.jagwantourandtravels.com",
+  ),
   alternates: {
-    canonical: '/',
+    canonical: "/",
     languages: {
-      'en': '/en',
-      'hi': '/hi',
+      en: "/en",
+      hi: "/hi",
     },
   },
   openGraph: {
     title: "Jagwan Tour & Travels | Best Tour and Travels in Uttarakhand",
-    description: "Book premium Uttarakhand tour packages, Char Dham Yatra, and vehicle rentals with local experts.",
+    description:
+      "Book premium Uttarakhand tour packages, Char Dham Yatra, and vehicle rentals with local experts.",
     url: "/",
     siteName: "Jagwan Tour & Travels",
     locale: "en_IN",
@@ -44,7 +49,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Jagwan Tour & Travels",
-    description: "Your trusted partner for Uttarakhand tours and vehicle rentals.",
+    description:
+      "Your trusted partner for Uttarakhand tours and vehicle rentals.",
   },
   icons: {
     icon: "/favicon.png",
@@ -56,5 +62,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      {children}
+      <GoogleTagManager
+        gtmId={process.env.NEXT_PUBLIC_GTM_ID || "GTM-XXXXXXX"}
+      />
+    </>
+  );
 }

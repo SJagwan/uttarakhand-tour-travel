@@ -13,16 +13,36 @@ interface Props {
 
 const initialState: BookingState = {};
 
-export default function BookingWidget({ tourTitle }: Props) {
+export default function BookingWidget({ tourTitle, tourId }: Props) {
   const [state, formAction, isPending] = useActionState(submitBooking, initialState);
   const [travelers, setTravelers] = useState<number | "">(1);
   const t = useTranslations("booking");
   const [minDate, setMinDate] = useState("");
+  const [tracked, setTracked] = useState(false);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMinDate(new Date(Date.now() + 86400000).toISOString().split("T")[0]);
   }, []);
+
+  // GTM Conversion Tracking for successful form submissions
+  useEffect(() => {
+    if (state.success && !tracked && typeof window !== "undefined") {
+      const w = window as any;
+      w.dataLayer = w.dataLayer || [];
+      w.dataLayer.push({
+        event: "generate_lead",
+        tour_id: tourId,
+        tour_title: tourTitle,
+        value: 1,
+        currency: "INR",
+        user_data: {
+          phone: "captured_via_form"
+        }
+      });
+      setTracked(true);
+    }
+  }, [state.success, tracked, tourId, tourTitle]);
 
   if (state.success) {
     return (

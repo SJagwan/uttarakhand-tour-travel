@@ -50,23 +50,7 @@ export default async function ToursPage({ params }: Props) {
 
       {/* Grid */}
       <main className="container mx-auto px-4 py-24">
-        <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
-          <div className="flex items-center gap-4">
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-slate-400">
-              {locale === "hi" ? "फ़िल्टर करें:" : "Filter By:"}
-            </span>
-            <div className="flex gap-2">
-              <span className="px-4 py-2 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest rounded-full cursor-default">
-                {locale === "hi" ? "सभी" : "All"}
-              </span>
-              <span className="px-4 py-2 bg-slate-50 text-slate-400 text-[10px] font-black uppercase tracking-widest rounded-full cursor-not-allowed">
-                {locale === "hi" ? "तीर्थयात्रा" : "Pilgrimage"}
-              </span>
-              <span className="px-4 py-2 bg-slate-50 text-slate-400 text-[10px] font-black uppercase tracking-widest rounded-full cursor-not-allowed">
-                {locale === "hi" ? "हिल स्टेशन" : "Hill Stations"}
-              </span>
-            </div>
-          </div>
+        <div className="flex justify-end mb-16">
           <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
             {locale === "hi" ? "दिखा रहा है" : "Showing"} {tours.length}{" "}
             {locale === "hi" ? "परिणाम" : "results"}
@@ -91,3 +75,4 @@ export default async function ToursPage({ params }: Props) {
     </div>
   );
 }
+

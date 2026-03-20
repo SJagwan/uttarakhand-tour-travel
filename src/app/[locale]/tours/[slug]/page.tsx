@@ -26,11 +26,64 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params;
   const tour = await getTourBySlug(slug, locale);
+  
   if (!tour) return { title: "Tour Not Found" };
 
+  const isHi = locale === 'hi';
+  
+  const baseTitle = `${tour.title} ${isHi ? 'पैकेज' : 'Package'}`;
+  const localHook = isHi ? 'देहरादून से बेहतरीन ट्रैवल एजेंसी' : 'Best Travel Agency in Dehradun';
+  
+  const title = `${baseTitle} | ${tour.durationNights}N/${tour.durationDays}D | ${localHook}`;
+  
+  const description = isHi 
+    ? `जगवान टूर एंड ट्रैवल्स के साथ ${tour.title} बुक करें। ${tour.shortDescription} सर्वोत्तम मूल्य, निजी टेम्पो ट्रैवलर, और देहरादून से विशेषज्ञ स्थानीय गाइड।`
+    : `Book the ${tour.title} with Jagwan Tour & Travels. ${tour.shortDescription} Best prices, private Tempo Travellers, and expert local guides from Dehradun.`;
+
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.uttarakhandtourandtravels.com';
+  const url = `${baseUrl}/${locale}/tours/${slug}`;
+  const imageUrl = tour.mainImage.url.startsWith('http') ? tour.mainImage.url : `${baseUrl}${tour.mainImage.url}`;
+
   return {
-    title: `${tour.title} - ${tour.durationNights}N/${tour.durationDays}D Package | Best Price`,
-    description: tour.shortDescription,
+    title,
+    description,
+    keywords: [
+      tour.title,
+      `${tour.title} package`,
+      `Dehradun travel agent for ${tour.title}`,
+      `Tempo traveller rental for ${tour.title}`,
+      `Jagwan Tour and Travels`,
+      `Uttarakhand tour packages from Dehradun`
+    ],
+    alternates: {
+      canonical: url,
+      languages: {
+        'en': `${baseUrl}/en/tours/${slug}`,
+        'hi': `${baseUrl}/hi/tours/${slug}`,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: 'Jagwan Tour & Travels',
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: tour.mainImage.alt || tour.title,
+        },
+      ],
+      locale: locale === 'hi' ? 'hi_IN' : 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [imageUrl],
+    },
   };
 }
 

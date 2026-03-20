@@ -25,7 +25,7 @@ export default async function ContactPage({
               {t("subheading")}
             </p>
 
-            <div className="space-y-8">
+            <div className="space-y-8 mb-12">
               <div className="flex gap-6 items-center">
                 <div className="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center text-green-600">
                   <Mail size={24} />
@@ -56,6 +56,19 @@ export default async function ContactPage({
                   </p>
                 </div>
               </div>
+            </div>
+
+            <div className="w-full h-64 md:h-80 bg-slate-100 rounded-[32px] overflow-hidden shadow-inner border border-slate-200">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5310.5641962023665!2d77.8953157!3d30.302877399999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ed527ca574be5%3A0x522318dfc7fdf80b!2sJagwan%20Tour%20and%20Travels!5e1!3m2!1sen!2sin!4v1774024696800!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Jagwan Tour and Travels Location"
+              ></iframe>
             </div>
           </div>
 

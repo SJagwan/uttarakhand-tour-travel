@@ -13,7 +13,6 @@ export interface ExperienceVideo {
   relatedTourSlug?: string;
 }
 
-// You can update these 3 URLs with your actual video links
 export const EXPERIENCE_VIDEOS: ExperienceVideo[] = [
   {
     id: "v1",
@@ -63,4 +62,49 @@ export const EXPERIENCE_VIDEOS: ExperienceVideo[] = [
       "https://ik.imagekit.io/s27s12j97/Jagwan%20Tour%20and%20Travels/barkot_to_jankichatti_IWrvDxQV2.MP4/ik-thumbnail.jpg?tr=so-2",
     relatedTourSlug: "char-dham-yatra-tour",
   },
+  {
+    id: "v4",
+    title: {
+      en: "Janki Chatti to Uttarkashi",
+      hi: "जानकी चट्टी से उत्तरकाशी",
+    },
+    location: {
+      en: "Gangotri Route",
+      hi: "गंगोत्री मार्ग",
+    },
+    videoUrl: "https://ik.imagekit.io/s27s12j97/Jagwan%20Tour%20and%20Travels/janki_chatti_to_uttarkashi_hzQvajIrd.MP4",
+    thumbnail: "https://ik.imagekit.io/s27s12j97/Jagwan%20Tour%20and%20Travels/janki_chatti_to_uttarkashi_hzQvajIrd.MP4/ik-thumbnail.jpg?tr=so-2",
+    relatedTourSlug: "char-dham-yatra-tour",
+  },
+  {
+    id: "v5",
+    title: {
+      en: "Uttarkashi to Harsil",
+      hi: "उत्तरकाशी से हर्षिल",
+    },
+    location: {
+      en: "Gangotri Route",
+      hi: "गंगोत्री मार्ग",
+    },
+    videoUrl: "https://ik.imagekit.io/s27s12j97/Jagwan%20Tour%20and%20Travels/uttarkashi_to_harsil_xXg9LKJ9I.MP4",
+    thumbnail: "https://ik.imagekit.io/s27s12j97/Jagwan%20Tour%20and%20Travels/uttarkashi_to_harsil_xXg9LKJ9I.MP4/ik-thumbnail.jpg?tr=so-2",
+    relatedTourSlug: "char-dham-yatra-tour",
+  },
+  {
+    id: "v6",
+    title: {
+      en: "Harsil to Gaurikund",
+      hi: "हर्षिल से गौरीकुंड",
+    },
+    location: {
+      en: "Kedarnath Route",
+      hi: "केदारनाथ मार्ग",
+    },
+    videoUrl: "https://ik.imagekit.io/s27s12j97/Jagwan%20Tour%20and%20Travels/harsil_to_gaurikund_zmvI4hwQ_.MP4",
+    thumbnail: "https://ik.imagekit.io/s27s12j97/Jagwan%20Tour%20and%20Travels/harsil_to_gaurikund_zmvI4hwQ_.MP4/ik-thumbnail.jpg?tr=so-2",
+    relatedTourSlug: "char-dham-yatra-tour",
+  }
 ];
+
+
+

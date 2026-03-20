@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { Play, Sparkles } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { EXPERIENCE_VIDEOS } from "@/lib/constants/experience";
+import { generateVideoSchema } from "@/lib/seo/schema";
 
 interface Props {
   params: Promise<{ locale: string }>;
@@ -24,9 +25,17 @@ export default async function ExperiencePage({ params }: Props) {
   const commonT = await getTranslations({ locale, namespace: "common" });
 
   const allVideos = EXPERIENCE_VIDEOS;
+  const schema = generateVideoSchema(allVideos, locale);
 
   return (
     <main className="min-h-screen bg-white">
+      {schema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      )}
+      
       {/* Dynamic Hero Section */}
       <header className="relative w-full py-24 md:py-32 bg-slate-900 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/uttarakhand-hero.jpg')] bg-cover bg-center opacity-30 grayscale" />

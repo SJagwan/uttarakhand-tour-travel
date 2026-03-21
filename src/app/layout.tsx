@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { GoogleTagManager } from "@next/third-parties/google";
 
 export const viewport: Viewport = {
   themeColor: "#16a34a",
@@ -62,12 +61,5 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <>
-      {children}
-      <GoogleTagManager
-        gtmId={process.env.NEXT_PUBLIC_GTM_ID || "GTM-XXXXXXX"}
-      />
-    </>
-  );
+  return children;
 }

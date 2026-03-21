@@ -1,18 +1,23 @@
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
-import { notFound } from 'next/navigation';
-import { routing } from '@/i18n/routing';
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/common/WhatsAppButton";
+import { GoogleTagManager } from "@next/third-parties/google";
 import "@/app/globals.css";
 
-const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export default async function LocaleLayout({
   children,
-  params
+  params,
 }: {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
@@ -29,12 +34,13 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${inter.variable} scroll-smooth`}>
+      <GoogleTagManager
+        gtmId={process.env.NEXT_PUBLIC_GTM_ID || "GTM-XXXXXXX"}
+      />
       <body className="antialiased flex flex-col min-h-screen">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Navbar locale={locale} />
-          <main className="flex-grow">
-            {children}
-          </main>
+          <main className="flex-grow">{children}</main>
           <Footer locale={locale} />
           <WhatsAppButton />
         </NextIntlClientProvider>

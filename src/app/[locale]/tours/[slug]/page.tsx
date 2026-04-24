@@ -26,23 +26,29 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params;
   const tour = await getTourBySlug(slug, locale);
-  
+
   if (!tour) return { title: "Tour Not Found" };
 
-  const isHi = locale === 'hi';
-  
-  const baseTitle = `${tour.title} ${isHi ? 'पैकेज' : 'Package'}`;
-  const localHook = isHi ? 'देहरादून से बेहतरीन ट्रैवल एजेंसी' : 'Best Travel Agency in Dehradun';
-  
+  const isHi = locale === "hi";
+
+  const baseTitle = `${tour.title} ${isHi ? "पैकेज" : "Package"}`;
+  const localHook = isHi
+    ? "देहरादून से बेहतरीन ट्रैवल एजेंसी"
+    : "Best Travel Agency in Dehradun";
+
   const title = `${baseTitle} | ${tour.durationNights}N/${tour.durationDays}D | ${localHook}`;
-  
-  const description = isHi 
+
+  const description = isHi
     ? `जगवान टूर एंड ट्रैवल्स के साथ ${tour.title} बुक करें। ${tour.shortDescription} सर्वोत्तम मूल्य, निजी टेम्पो ट्रैवलर, और देहरादून से विशेषज्ञ स्थानीय गाइड।`
     : `Book the ${tour.title} with Jagwan Tour & Travels. ${tour.shortDescription} Best prices, private Tempo Travellers, and expert local guides from Dehradun.`;
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.uttarakhandtourandtravels.com';
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://www.uttarakhandtourandtravels.com";
   const url = `${baseUrl}/${locale}/tours/${slug}`;
-  const imageUrl = tour.mainImage.url.startsWith('http') ? tour.mainImage.url : `${baseUrl}${tour.mainImage.url}`;
+  const imageUrl = tour.mainImage.url.startsWith("http")
+    ? tour.mainImage.url
+    : `${baseUrl}${tour.mainImage.url}`;
 
   return {
     title,
@@ -53,20 +59,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `Dehradun travel agent for ${tour.title}`,
       `Tempo traveller rental for ${tour.title}`,
       `Jagwan Tour and Travels`,
-      `Uttarakhand tour packages from Dehradun`
+      `Uttarakhand tour packages from Dehradun`,
     ],
     alternates: {
       canonical: url,
       languages: {
-        'en': `${baseUrl}/en/tours/${slug}`,
-        'hi': `${baseUrl}/hi/tours/${slug}`,
+        en: `${baseUrl}/en/tours/${slug}`,
+        hi: `${baseUrl}/hi/tours/${slug}`,
       },
     },
     openGraph: {
       title,
       description,
       url,
-      siteName: 'Jagwan Tour & Travels',
+      siteName: "Jagwan Tour & Travels",
       images: [
         {
           url: imageUrl,
@@ -75,11 +81,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           alt: tour.mainImage.alt || tour.title,
         },
       ],
-      locale: locale === 'hi' ? 'hi_IN' : 'en_US',
-      type: 'website',
+      locale: locale === "hi" ? "hi_IN" : "en_US",
+      type: "website",
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title,
       description,
       images: [imageUrl],
@@ -166,9 +172,12 @@ export default async function TourDetailPage({ params }: Props) {
                 locale={locale as any}
                 className="flex items-center gap-2 bg-white/10 hover:bg-white/20 transition-colors backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 text-white group"
               >
-                <Play size={16} className="text-green-400 fill-green-400 group-hover:scale-110 transition-transform" />
+                <Play
+                  size={16}
+                  className="text-green-400 fill-green-400 group-hover:scale-110 transition-transform"
+                />
                 <span className="text-[10px] font-black uppercase tracking-widest">
-                  {locale === 'hi' ? 'यात्रा अनुभव देखें' : 'Watch Experience'}
+                  {locale === "hi" ? "यात्रा अनुभव देखें" : "Watch Experience"}
                 </span>
               </Link>
             </div>
@@ -202,8 +211,8 @@ export default async function TourDetailPage({ params }: Props) {
                   <div>
                     <div className="text-[10px] font-bold text-slate-400 uppercase mb-1 leading-tight">
                       {locale === "hi"
-                        ? "प्रति व्यक्ति (होटल + भोजन सहित)"
-                        : "Per Person (Hotel + Meals included)"}
+                        ? "शुरुआती कीमत (प्रति व्यक्ति, होटल + भोजन सहित)"
+                        : "Starting from (per person, hotel + meals included)"}
                     </div>
                     <div className="flex items-baseline gap-1">
                       <span className="text-2xl font-black text-slate-900 tracking-tighter italic">

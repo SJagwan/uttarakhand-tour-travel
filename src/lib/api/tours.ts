@@ -64,6 +64,9 @@ const getYatraItinerary = (name: string, locale: string): ItineraryDay[] => {
     lowerName.includes("do dham") || lowerName.includes("दो धाम");
   const isTeenDham =
     lowerName.includes("teen dham") || lowerName.includes("तीन धाम");
+  const isKedarnathYatra =
+    lowerName.includes("kedarnath yatra") ||
+    lowerName.includes("केदारनाथ यात्रा");
 
   if (isCharDham) {
     return [
@@ -226,6 +229,54 @@ const getYatraItinerary = (name: string, locale: string): ItineraryDay[] => {
         description: isHi
           ? "ऋषिकेश होते हुए वापसी यात्रा और हरिद्वार/देहरादून में ड्रॉप।"
           : "Return journey via Rishikesh and drop off at Haridwar or Dehradun.",
+        meals: ["Breakfast"],
+      },
+    ];
+  }
+
+  if (isKedarnathYatra) {
+    return [
+      {
+        day: 1,
+        title: isHi
+          ? "हरिद्वार/ऋषिकेश से सोनप्रयाग"
+          : "Haridwar/Dehradun to Sonprayag",
+        description: isHi
+          ? "आपके पिकअप बिंदु (हरिद्वार, ऋषिकेश या देहरादून) से पिकअप और देवप्रयाग, रुद्रप्रयाग होते हुए सोनप्रयाग के लिए सुंदर ड्राइव। रास्ते में अलकनंदा और मंदाकिनी नदी के संगम के दर्शन।"
+          : "Pickup from your chosen point (Haridwar, Rishikesh, or Dehradun) and scenic drive to Sonprayag via Devprayag & Rudraprayag. Witness the confluence of Alaknanda & Mandakini rivers en route.",
+        meals: ["Dinner"],
+        accommodation: "Sonprayag / Guptkashi Hotel",
+      },
+      {
+        day: 2,
+        title: isHi
+          ? "सोनप्रयाग से केदारनाथ ट्रेक"
+          : "Sonprayag to Kedarnath Trek",
+        description: isHi
+          ? "सोनप्रयाग से गौरीकुंड तक ड्राइव और केदारनाथ मंदिर के लिए 16 किमी ट्रेक (पोनी/पालकी/हेलीकॉप्टर उपलब्ध)। शाम को केदारनाथ मंदिर के दर्शन। रात्रि विश्राम केदारनाथ में।"
+          : "Drive from Sonprayag to Gaurikund and trek 16 km to Kedarnath Temple (Pony/Palki/Helicopter available). Evening Darshan at the temple. Overnight stay in Kedarnath.",
+        meals: ["Breakfast", "Dinner"],
+        accommodation: "Kedarnath Guest House",
+      },
+      {
+        day: 3,
+        title: isHi
+          ? "केदारनाथ दर्शन और सोनप्रयाग वापसी"
+          : "Kedarnath Darshan & Return to Sonprayag",
+        description: isHi
+          ? "सुबह केदारनाथ मंदिर में दर्शन और भैरव नाथ मंदिर दर्शन। गौरीकुंड तक नीचे ट्रेक और सोनप्रयाग वापसी। रात्रि विश्राम सोनप्रयाग में।"
+          : "Early morning Darshan at Kedarnath Temple and visit Bhairav Nath Temple. Trek down to Gaurikund and return to Sonprayag. Overnight stay in Sonprayag.",
+        meals: ["Breakfast", "Dinner"],
+        accommodation: "Sonprayag / Guptkashi Hotel",
+      },
+      {
+        day: 4,
+        title: isHi
+          ? "सोनप्रयाग से हरिद्वार/ऋषिकेश वापसी"
+          : "Sonprayag to Haridwar/Rishikesh",
+        description: isHi
+          ? "सुबह नाश्ते के बाद वापसी यात्रा। रुद्रप्रयाग और देवप्रयाग संगम होते हुए हरिद्वार या ऋषिकेश में ड्रॉप। यात्रा सुखद स्मृतियों के साथ समाप्त।"
+          : "Morning breakfast and return journey via Rudraprayag & Devprayag. Drop at Haridwar or Rishikesh. Tour concludes with happy memories.",
         meals: ["Breakfast"],
       },
     ];

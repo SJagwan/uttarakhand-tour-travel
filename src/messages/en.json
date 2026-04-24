@@ -254,8 +254,8 @@
         "name": "Char Dham Yatra",
         "tagline": "The Complete Spiritual Pilgrimage",
         "duration": "10 Days / 9 Nights",
-        "price": "27500",
-        "description": "A sacred 10-day journey covering Yamunotri, Gangotri, Kedarnath, and Badrinath. Price ranges from ₹27,500 to ₹35,000 per person depending on hotel category, food, and activities. Includes daily breakfast and dinner.",
+        "price": "24999",
+        "description": "A sacred 10-day journey covering Yamunotri, Gangotri, Kedarnath, and Badrinath. Price starts from ₹24,999 per person depending on hotel category, food, and activities. Includes daily breakfast and dinner.",
         "route": "Haridwar/Dehradun → Barkot → Uttarkashi → Guptkashi → Kedarnath → Badrinath → Rudraprayag → Haridwar",
         "highlights": [
           "MAP Plan (Breakfast & Dinner)",
@@ -271,8 +271,8 @@
         "name": "Do Dham Yatra",
         "tagline": "Kedarnath & Badrinath Special",
         "duration": "6 Days / 5 Nights",
-        "price": "18500",
-        "description": "A focused 6-day pilgrimage to the two most prominent shrines: Kedarnath (Lord Shiva) and Badrinath (Lord Vishnu). Price ranges from ₹18,500 to ₹25,000 per person depending on facilities. Includes daily breakfast and dinner.",
+        "price": "16999",
+        "description": "A focused 6-day pilgrimage to the two most prominent shrines: Kedarnath (Lord Shiva) and Badrinath (Lord Vishnu). Price starts from ₹16,999 per person depending on facilities. Includes daily breakfast and dinner.",
         "route": "Haridwar/Dehradun → Guptkashi → Kedarnath → Pipalkoti → Badrinath → Haridwar",
         "highlights": [
           "MAP Plan (Breakfast & Dinner)",
@@ -285,11 +285,28 @@
         "slug": "do-dham-yatra-tour"
       },
       {
+        "name": "Kedarnath Yatra",
+        "tagline": "Sacred Trek to the Abode of Lord Shiva",
+        "duration": "4 Days / 3 Nights",
+        "price": "8499",
+        "description": "A focused 4-day pilgrimage to the sacred Kedarnath Temple, one of the twelve Jyotirlingas. Trek through breathtaking Himalayan landscapes, witness the mighty Mandakini river, and seek blessings at one of India's holiest shrines. Price starts from ₹8,499 per person depending on hotel category and services. Includes daily breakfast and dinner.",
+        "route": "Haridwar/Dehradun → Sonprayag → Kedarnath → Sonprayag → Haridwar",
+        "highlights": [
+          "MAP Plan (Breakfast & Dinner)",
+          "Starts from Haridwar/Dehradun",
+          "2N Sonprayag, 1N Kedarnath",
+          "Guided Temple Darshan & Trek Support"
+        ],
+        "img": "/destinations/kedarnath.jpg",
+        "bestTime": "May to June, and September to October",
+        "slug": "kedarnath-yatra-tour"
+      },
+      {
         "name": "Teen Dham Yatra",
         "tagline": "Yamunotri, Kedarnath & Badrinath",
         "duration": "8 Days / 7 Nights",
-        "price": "24500",
-        "description": "A specialized 8-day pilgrimage covering Yamunotri, Kedarnath, and Badrinath. Price starts at ₹24,500 per person depending on facilities. Includes daily breakfast and dinner.",
+        "price": "21999",
+        "description": "A specialized 8-day pilgrimage covering Yamunotri, Kedarnath, and Badrinath. Price starts from ₹21,999 per person depending on facilities. Includes daily breakfast and dinner.",
         "route": "Haridwar/Dehradun → Barkot → Guptkashi → Kedarnath → Badrinath → Rudraprayag → Haridwar",
         "highlights": [
           "MAP Plan (Breakfast & Dinner)",

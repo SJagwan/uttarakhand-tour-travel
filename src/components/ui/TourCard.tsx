@@ -103,7 +103,7 @@ export default function TourCard({ tour }: Props) {
         <div className="pt-6 border-t border-slate-50 flex items-center justify-between">
           <div>
             <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">
-              {locale === "hi" ? "संपूर्ण पैकेज" : "Full Package"}
+              {locale === "hi" ? "शुरुआती पैकेज मूल्य" : "Package Starts From"}
             </p>
             <div className="flex flex-col">
               <div className="flex items-baseline gap-1">
